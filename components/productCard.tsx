@@ -1,5 +1,5 @@
 import Image from 'next-export-optimize-images/image'
-import { Product, toKebabCase } from "@/scripts/fetchNotionProducts";
+import { Product } from "@/scripts/fetchNotionProducts";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import properties from "../data/properties.json";
@@ -17,7 +17,7 @@ export default function ProductCard({ product, descMaxLength = 80 }: { product: 
 	}
 	return (
 		<a
-			href={"/product/" + toKebabCase(product.partNumber)}
+			href={product.url}
 			key={product.id} className="flex flex-col lg:items-start items-center h-full" >
 			{
 				product.images?.[0] ? (

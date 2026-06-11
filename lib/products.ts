@@ -37,7 +37,7 @@ function withFallbacks(entry: ManualEntry): Product {
     });
   const priority = entry.priority ?? 999;
   const id = `manual-${toKebabCase(entry.partNumber)}`;
-  const url = `/product/${toKebabCase(entry.partNumber)}`;
+  const url = `/${toKebabCase(type)}/${toKebabCase(entry.partNumber)}`;
 
   return {
     id,
@@ -59,7 +59,11 @@ function mergeAndSort() {
     .filter((e) => !existing.has(e.partNumber))
     .map(withFallbacks);
 
-  return [...notionProducts, ...manual];
+  const all = [...notionProducts, ...manual];
+  return all.map((p) => ({
+    ...p,
+    url: `/${toKebabCase(p.type)}/${toKebabCase(p.partNumber)}`,
+  }));
 }
 
 const products: Product[] = mergeAndSort();

@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run saveNotion && next build && next-export-optimize-images",
-    "build:static": "next build && next-export-optimize-images",
+    "build:static": "next build && next-export-optimize-images && postbuild",
     "postbuild": "next-sitemap",
     "saveNotion": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/saveNotionData.ts",
     "start": "next start",
