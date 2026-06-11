@@ -19,7 +19,6 @@ const Contact7 = () => {
         </div>
         <div className="grid gap-10 md:grid-cols-3">
           <Link
-            // href={`tel:+91-${properties["contact.phone.visible"].value}`} 
             href={whatsappHref}
             className="cursor:pointer">
             <Button aria-label='Whatsapp Us'>
@@ -47,18 +46,6 @@ const Contact7 = () => {
               {properties["contact.email"].value}
             </div>
           </Link>
-          {/* <div>
-            <span className="mb-3 flex size-12 bg-(--color-primary) flex-col items-center justify-center rounded-xl text-white">
-              <Phone className="h-6 w-auto" />
-            </span>
-            <p className="text-lg font-semibold tracking-tight">Call Us</p>
-            <p className="mb-4 text-muted-foreground text-sm">
-              We&apos;re available Mon-Fri, 10am-6pm.
-            </p>
-            <Link href={`tel:+91-${properties["contact.phone.visible"].value}`} className="font-bold cursor:pointer">
-              +91-{properties["contact.phone.visible"].value}
-            </Link>
-          </div> */}
           <Link target="_blank" href={`${properties["contact.location"].value}`} className=" cursor:pointer">
             <Button aria-label='Visit Us'>
               <MapPin />

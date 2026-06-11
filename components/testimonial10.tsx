@@ -49,10 +49,6 @@ const Testimonial10 = ({
               &ldquo;{testimonial.quote}&rdquo;
             </p>
             <div className="flex flex-col items-center md:gap-2">
-              {/* <Avatar className="size-12 md:size-16 items-center">
-                <AvatarImage src={testimonial.author.avatar.src} alt={testimonial.author.avatar.alt} />
-                <AvatarFallback>{testimonial.author.name}</AvatarFallback>
-              </Avatar> */}
               <div className="center">
                 <p className="text-sm font-medium md:text-base flex gap-2 justify-center mt-4 center"><UserRoundCheck className="text-(--primary)" />{testimonial.author.name}</p>
                 <p className="text-sm text-muted-foreground md:text-base">

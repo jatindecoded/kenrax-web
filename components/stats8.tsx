@@ -45,13 +45,6 @@ const Stats8 = ({
         <div className="flex flex-col">
           <h2 className="text-2xl font-bold md:text-4xl tracking-tight">{heading}</h2>
           <p className="text-md font-medium">{description}</p>
-          {/* <a
-            href={link.url}
-            className="flex items-center gap-1 font-bold hover:underline"
-          >
-            {link.text}
-            <ArrowRight className="h-auto w-4" />
-          </a> */}
         </div>
         <div className="mt-14 grid gap-x-5 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (

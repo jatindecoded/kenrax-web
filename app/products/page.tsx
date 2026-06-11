@@ -1,5 +1,5 @@
 import { Team2 } from "@/components/team2";
-import products from '../../data/products.json'
+import products from '@/lib/products'
 import { Metadata } from "next";
 import properties from "@/data/properties.json"
 import { Suspense } from "react";

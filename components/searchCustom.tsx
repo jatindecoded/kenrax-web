@@ -3,7 +3,7 @@ import { useRouter } from '@bprogress/next/app';
 import { useState } from "react";
 import { productsPageHref } from "./constants";
 import { Button } from "./ui/button";
-import products from "@/data/products.json";
+import products from "@/lib/products";
 
 import {
 	Command,
@@ -16,13 +16,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import Link from "next/link";
 
-export const SearchCustom = ({ }: {
-	// results: Product[];
-	// setResults: Dispatch<React.SetStateAction<Product[]>>;
-	// activeFilters?: string[];
-	// setActiveFilters?: Dispatch<React.SetStateAction<String[]>>;
-
-}) => {
+export const SearchCustom = () => {
 	const router = useRouter();
 
 	const [open, setOpen] = useState(false)
@@ -33,40 +27,6 @@ export const SearchCustom = ({ }: {
 		router.push(productsPageHref + (query !== "" ? ("?name=" + query) : ""))
 	}
 
-
-	// const handleToggle = (filter: string) => {
-	// 	if (!activeFilters || !setActiveFilters) {
-	// 		return;
-	// 	}
-	// 	setActiveFilters(prev =>
-	// 		prev.includes(filter)
-	// 			? prev.filter(f => f !== filter)
-	// 			: [...prev, filter]
-	// 	);
-	// };
-
-	// const fuse = useMemo(() => {
-	// 	return new Fuse(products, {
-	// 		keys: ['partNumber', 'type', 'OEM', 'compatibleWith'],
-	// 		threshold: 0.2, // adjust for fuzziness (0 = exact, 1 = very fuzzy)
-	// 	});
-	// }, [products]);
-
-
-	// useEffect(() => {
-	// 	setResults(
-	// 		searchQuery
-	// 			? fuse
-	// 				.search(searchQuery)
-	// 				.map(result => result.item)
-	// 				.filter(product =>
-	// 					(!activeFilters || activeFilters.length === 0) ? true : activeFilters.includes(product.type.toLowerCase())
-	// 				)
-	// 			: products.filter(product =>
-	// 				(!activeFilters || activeFilters.length === 0) ? true : activeFilters.includes(product.type.toLowerCase())
-	// 			)
-	// 	)
-	// }, [searchQuery])
 
 	return (
 		<div className="relative mb-6 h-[36px] relative flex justify-center gap-1">
@@ -135,12 +95,7 @@ export const SearchCustom = ({ }: {
 												{product.type}
 											</span>
 										</Link>
-										{/* <Check
-											className={cn(
-												"ml-auto",
-												searchQuery === product.partNumber ? "opacity-100" : "opacity-0"
-											)}
-										/> */}
+								
 									</CommandItem>
 								))}
 							</CommandGroup>
@@ -160,66 +115,7 @@ export const SearchCustom = ({ }: {
 					Search
 				</span>
 			</Button>
-			{/* <Command
-				className="rounded-lg border shadow-md md:min-w-[450px]">
-				<CommandInput
-					value={searchQuery}
-					onValueChange={(value) => setSearchQuery(value)}
-					onKeyDown={(e) => {
-						if (e.key === 'Enter') {
-							onSubmitQuery()
-						}
-					}}
-					placeholder="Search a part number"
-					className="pr-18"
-				/>
-				<Button className="absolute right-0.5 top-1/2 -translate-y-1/2" size={'sm'} onClick={onSubmitQuery}>Search</Button> */}
-			{/* {searchQuery.length > 0 &&
-					<CommandList
-						className="absolute z-50 w-full top-10 bg-white shadow-md border rounded-md" >
-						{results.length > 0 && searchQuery !== "" && <CommandGroup heading="Products">
-							{results.map((product) => {
-								return (
-									<CommandItem
-										className="cursor:pointer"
-										key={product.url}
-										onSelect={() => {
-											router.push(product.url)
-										}}
-									>
-										<Leaf />
-										<span className="font-semibold">{product.partNumber || ""}</span>
-										<CommandShortcut className="tracking-tight uppercase">{product.type}</CommandShortcut>
-									</CommandItem>
 
-								)
-							})}
-						</CommandGroup>}
-						<CommandGroup heading="Search for">
-							<CommandItem
-								className="cursor:pointer"
-								key="fallback"
-								onSelect={onSubmitQuery}
-							><span>{searchQuery}</span></CommandItem>
-						</CommandGroup>
-					</CommandList>
-				} */}
-			{/* </Command> */}
-			{/* <Select>
-				<SelectTrigger  className="w-[180px]">
-					<Input />
-				</SelectTrigger>
-				<SelectContent>
-					<SelectGroup>
-						<SelectLabel>Fruits</SelectLabel>
-						<SelectItem value="apple">Apple</SelectItem>
-						<SelectItem value="banana">Banana</SelectItem>
-						<SelectItem value="blueberry">Blueberry</SelectItem>
-						<SelectItem value="grapes">Grapes</SelectItem>
-						<SelectItem value="pineapple">Pineapple</SelectItem>
-					</SelectGroup>
-				</SelectContent>
-			</Select> */}
 
 
 		</div >

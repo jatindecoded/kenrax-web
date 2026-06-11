@@ -23,12 +23,6 @@ const Team2 = ({ products }: ProductPageInterface) => {
   const [results, setResults] = useState(products);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
-  // useEffect(() => {
-  //   if (name) {
-  //     setSearchQuery(name)
-  //   }
-  // }, [])
-
   const handleToggle = (filter: string) => {
     setActiveFilters(prev =>
       prev.includes(filter)
@@ -36,28 +30,6 @@ const Team2 = ({ products }: ProductPageInterface) => {
         : [...prev, filter]
     );
   };
-
-  // const fuse = useMemo(() => {
-  //   return new Fuse(products, {
-  //     keys: ['partNumber', 'type', 'OEM', 'compatibleWith'],
-  //     threshold: 0.4, // adjust for fuzziness (0 = exact, 1 = very fuzzy)
-  //   });
-  // }, [products]);
-
-  // const results = searchQuery
-  //   ? fuse
-  //     .search(searchQuery)
-  //     .map(result => result.item)
-  //     .filter(product =>
-  //       activeFilters.length === 0 ? true : activeFilters.includes(product.type.toLowerCase())
-  //     )
-  //   : products.filter(product =>
-  //     activeFilters.length === 0 ? true : activeFilters.includes(product.type.toLowerCase())
-  //   );
-
-  // const results = products.filter(product =>
-  //   activeFilters.length === 0 ? true : activeFilters.includes(product.type.toLowerCase())
-  // );
 
   useEffect(() => {
     setResults(products.filter(product => {

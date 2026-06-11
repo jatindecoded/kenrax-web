@@ -8,7 +8,6 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 			height="4px"
 			color="oklch(0.59 0.1988 141.8)"
 			options={{ showSpinner: false }}
-		// shallowRouting
 		>
 			{children}
 		</ProgressProvider>

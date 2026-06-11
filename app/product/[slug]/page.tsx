@@ -1,11 +1,12 @@
 // app/product/[slug]/page.tsx
 import { Careers4 } from "@/components/careers4";
 import { Hero3 } from "@/components/hero3";
-import products from "../../../data/products.json";
+import products from "@/lib/products";
 import { toKebabCase } from "@/scripts/fetchNotionProducts";
 import Home from "@/app/products/page";
 import { Metadata, ResolvingMetadata } from "next";
 import properties from "@/data/properties.json"
+import { generateProductDescription, generateProductKeywords, getApplication } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -20,27 +21,46 @@ export default async function Page({ params }: ProductPageProps) {
     return Home();
   }
 
-  const jsonLd = {
+  const seoDesc = generateProductDescription(product);
+  const application = getApplication(product.type, product.OEMs, product.compatibleWith);
+
+  const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.partNumber,
-    "description": product.description,
+    "description": seoDesc,
     "sku": product.partNumber,
+    "mpn": product.partNumber,
     "brand": {
       "@type": "Brand",
-      "name": product.OEMs.join(", ") || "Kenrax"
+      "name": product.OEMs.join(", ") || "Kenrax",
     },
     "image": `https://kenrax.in/${product.images[0] || properties["media.homepage.photo.1"].media[0]}`,
+    "url": `https://kenrax.in/product/${slug}`,
     "offers": {
       "@type": "Offer",
       "url": `https://kenrax.in/product/${slug}`,
       "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
-    }
+      "price": properties["product.default.price"]?.value || "5000",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "Organization",
+        "name": "Kenrax",
+      },
+    },
+    "category": product.type || "Industrial Filter",
+    "application": application,
+    "material": product.compatibleWith?.join(", ") || undefined,
   }
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero3 product={product} />
 
       <Careers4 product={product} />
@@ -67,22 +87,17 @@ export async function generateMetadata(
   if (!product) return {};
 
   const brand = product.OEMs.join(", ") || "Kenrax";
+  const type = product.type || "Replacement Part";
   const partNumber = product.partNumber;
-  const type = product.type || "Filter | Separator";
-  const title = `${partNumber} - ${type}`;
-  const description = product.description ||
-    `Buy ${brand} replacement ${type} - ${partNumber} for industrial air compressors. High-quality, compatible with OEMs.`;
 
-  const keywords = [
-    `${brand} Replacement ${type}`,
-    `${brand} ${type}`,
-    `${partNumber} ${brand}`,
-    `${type} for ${brand}`,
-    `${partNumber} replacement filter`,
-    "Air Compressor Spare Parts",
-    "OEM Replacement Filters",
-    "Kenrax Filters"
-  ];
+  const title =
+    brand !== "Kenrax"
+      ? `${partNumber} - ${type} for ${brand} | Kenrax`
+      : `${partNumber} - ${type} | Kenrax`;
+
+  const description = generateProductDescription(product);
+  const application = getApplication(product.type, product.OEMs, product.compatibleWith);
+  const keywords = generateProductKeywords(product);
 
   const imageUrl = `https://kenrax.in/${product.images[0] || properties["media.homepage.photo.1"].media[0]}`;
 
@@ -94,15 +109,17 @@ export async function generateMetadata(
       title,
       description,
       url: `https://kenrax.in/product/${slug}`,
+      siteName: "Kenrax",
+      locale: "en_IN",
       type: "website",
       images: [
         {
           url: imageUrl,
           width: 640,
           height: 800,
-          alt: title
-        }
-      ]
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -113,9 +130,12 @@ export async function generateMetadata(
           url: imageUrl,
           width: 640,
           height: 800,
-          alt: title
-        }
-      ]
-    }
+          alt: title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `https://kenrax.in/product/${slug}`,
+    },
   };
 }

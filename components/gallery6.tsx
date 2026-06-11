@@ -2,7 +2,7 @@
 
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import products from "../data/products.json";
+import products from "@/lib/products";
 
 import { Button } from "@/components/ui/button";
 import {

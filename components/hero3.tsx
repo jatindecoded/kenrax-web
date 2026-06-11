@@ -165,7 +165,6 @@ const Hero3 = ({
               })) :
                 (
                   <CarouselItem
-                    // key={idx}
                     className="place-items-center flex justify-center relative">
                     <Image
                       width={400}

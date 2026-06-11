@@ -1,13 +1,12 @@
-import { Navbar1 } from "@/components/navbar1";
-import "./globals.css";
 import { Footer2 } from "@/components/footer2";
-import { Suspense } from "react";
-import Providers from "./providers";
+import { Navbar1 } from "@/components/navbar1";
 import properties from "@/data/properties.json";
-import { Inter } from "next/font/google";
 import { Metadata } from "next";
+import { Geist, Inter } from "next/font/google";
+import "./globals.css";
+import Providers from "./providers";
 
-const InterFont = Inter({ subsets: ["latin"] })
+const InterFont = Geist({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,

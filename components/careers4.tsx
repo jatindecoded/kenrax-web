@@ -128,31 +128,6 @@ const Careers4 = ({
               </div>
             )}
           </div>
-          {/* <div className="mx-auto flex flex-col gap-16 mt-6">
-            {jobs.map((jobCategory) => (
-              <div key={jobCategory.category} className="grid">
-                {jobCategory.openings.map((job) => (
-                  <div
-                    key={job.title}
-                    className="flex items-center justify-between border-b py-4 hover:underline font-semibold"
-                  >
-                    {job.title}
-                    <div
-                      className={cn(
-                        buttonVariants({
-                          variant: "outline",
-                          size: "sm",
-                        }),
-                        "pointer-events-none rounded-full",
-                      )}
-                    >
-                      {job.location}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div> */}
         </div>
       </div>
     </section>

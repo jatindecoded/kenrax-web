@@ -140,31 +140,6 @@ if (!fs.existsSync(blogsDir)) {
 	fs.mkdirSync(blogsDir, { recursive: true });
 }
 
-// async function saveBlogs() {
-// 	const blogs = await fetchNotionBlogs();
-
-// 	console.log("=========================BLOGS FROM NOTION============================")
-// 	console.log(blogs)
-
-// 	if (!blogs || blogs.length === 0) {
-// 		console.log('No blogs found to save.');
-// 		return;
-// 	}
-
-// 	// Save each blog as a separate JSON file named by slug or id
-// 	blogs.forEach(blog => {
-// 		// Assuming each blog has a unique 'slug' or 'id'
-// 		const fileName = blog.slug
-// 			? `${sanitizeFilenameForSEO(blog.slug)}.json`
-// 			: `${blog.id}.json`;
-
-// 		const filePath = path.join(blogsDir, fileName);
-
-// 		fs.writeFileSync(filePath, JSON.stringify(blog, null, 2));
-// 		console.log(`Blog saved: ${fileName}`);
-// 	});
-// }
-
 async function saveBlogs() {
 	const blogs = await fetchNotionBlogs();
 

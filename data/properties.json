@@ -5,6 +5,11 @@
     "media": [],
     "value": "Kenrax Industries is a trusted manufacturer of premium replacement air compressor filters including air filters, oil filters, air-oil separators, and hydraulic filters for OEMs like Atlas Copco, Ingersoll Rand, Kirloskar, Elgi, Kaeser, and more. Based in Delhi, India."
   },
+  "product.default.price": {
+    "key": "product.default.price",
+    "media": [],
+    "value": "5000"
+  },
   "contact.location": {
     "id": "1fb9473a-31b3-80d2-b917-d143588d919b",
     "key": "contact.location",

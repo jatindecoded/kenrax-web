@@ -46,25 +46,6 @@ const Footer2 = ({
         { text: "FAQs", url: "/#FAQ" }
       ],
     },
-    // {
-    //   title: "Company",
-    //   links: [
-    //     { text: "About", url: "#" },
-    //     { text: "Team", url: "#" },
-    //     { text: "Blog", url: "#" },
-    //     { text: "Careers", url: "#" },
-    //     { text: "Contact", url: "#" },
-    //     { text: "Privacy", url: "#" },
-    //   ],
-    // },
-    // {
-    //   title: "Resources",
-    //   links: [
-    //     { text: "Help", url: "#" },
-    //     { text: "Sales", url: "#" },
-    //     { text: "Advertise", url: "#" },
-    //   ],
-    // },
     {
       title: "Social",
       links: [
