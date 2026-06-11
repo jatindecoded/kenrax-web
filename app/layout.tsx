@@ -1,5 +1,6 @@
 import { Footer2 } from "@/components/footer2";
 import { Navbar1 } from "@/components/navbar1";
+import { GTranslateWrapper } from "@/components/gtranslate-wrapper";
 import properties from "@/data/properties.json";
 import { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
@@ -25,10 +26,12 @@ export default function RootLayout({
         <link rel="llms" href="/llms.txt" type="text/plain" title="Kenrax LLMs.txt" />
         <meta name="google" content="nositelinkssearchbox" />
         <meta name="format-detection" content="telephone=yes" />
+
       </head>
       <body
         className={`antialiased ${InterFont.className}`}
       >
+        <GTranslateWrapper />
         <Providers>
           <header className="sticky top-0 z-50">
             <Navbar1 />
