@@ -112,7 +112,7 @@ const Navbar1 = ({
           </div>
           <div className="flex gap-2">
             <Button aria-label={auth.login.title} asChild variant="outline" size="sm">
-              <Link href={auth.login.url}><Download />{auth.login.title}</Link>
+              <a href={auth.login.url}><Download />{auth.login.title}</a>
             </Button>
             <Button aria-label={auth.signup.title} asChild size="sm">
               <Link href={auth.signup.url}>{auth.signup.title}</Link>
@@ -183,7 +183,7 @@ const Navbar1 = ({
 
                   <div className="flex flex-col gap-3">
                     <Button aria-label={auth.login.title} asChild variant="outline">
-                      <Link href={auth.login.url}>{auth.login.title}</Link>
+                      <a href={auth.login.url}>{auth.login.title}</a>
                     </Button>
                     <Button aria-label={auth.signup.title} asChild>
                       <Link href={auth.signup.url}>{auth.signup.title}</Link>
