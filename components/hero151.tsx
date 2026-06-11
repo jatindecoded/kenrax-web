@@ -1,5 +1,4 @@
 "use client"
-import Image from 'next-export-optimize-images/image'
 import { Button } from "@/components/ui/button";
 import { Download, PhoneOutgoing } from "lucide-react";
 import properties from "../data/properties.json";
@@ -7,6 +6,7 @@ import { useState } from "react";
 import { SearchCustom } from "./searchCustom";
 import { Product } from "@/scripts/fetchNotionProducts";
 import products from "@/data/products.json";
+import Image from 'next-export-optimize-images/image'
 
 interface Testimonial {
   quote: string;
