@@ -2,6 +2,9 @@
   "name": "business-test-site",
   "version": "0.1.0",
   "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npm run saveNotion && next build && next-export-optimize-images",
