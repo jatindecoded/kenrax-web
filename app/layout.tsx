@@ -22,6 +22,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Kenrax" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="llms" href="/llms.txt" type="text/plain" title="Kenrax LLMs.txt" />
+        <meta name="google" content="nositelinkssearchbox" />
+        <meta name="format-detection" content="telephone=yes" />
       </head>
       <body
         className={`antialiased ${InterFont.className}`}
@@ -70,5 +73,10 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     capable: true
   },
-
+  twitter: {
+    card: "summary_large_image",
+    site: "@kenrax",
+    creator: "@kenrax",
+  },
+  category: "industrial manufacturing",
 };

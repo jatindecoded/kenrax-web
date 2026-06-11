@@ -54,11 +54,40 @@ export default async function Page({ params }: ProductPageProps) {
     "material": product.compatibleWith?.join(", ") || undefined,
   }
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kenrax.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://kenrax.in/products"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": product.partNumber,
+        "item": `https://kenrax.in/product/${slug}`
+      }
+    ]
+  };
+
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Hero3 product={product} />
 

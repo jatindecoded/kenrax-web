@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How can I place a bulk order or inquire about pricing?",
     answer:
-      "To place bulk orders or request pricing, you can contact us directly at kenraxindustries@gmail.com or call +91 9990249868. We cater to dealers, distributors, and OEMs.",
+      "To place bulk orders or request pricing, you can contact us directly at jatin.kenrax@gmail.com or call +91 9810329240. We cater to dealers, distributors, and OEMs.",
   },
   {
     question: "Do you offer custom part numbers or private labeling?",
@@ -33,9 +33,26 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }))
+};
+
 const Faq5 = () => {
   return (
     <section className="pt-32" id="faq">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="items-center">
         <div className="text-center">
           <Badge className="text-xs font-medium">FAQ</Badge>

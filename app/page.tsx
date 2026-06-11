@@ -9,8 +9,39 @@ import { Metadata } from "next";
 import properties from "@/data/properties.json"
 
 export default function Home() {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://kenrax.in/#organization",
+    "name": "Kenrax Industries",
+    "url": "https://kenrax.in",
+    "logo": "https://kenrax.in/favicon.svg",
+    "description": "Manufacturer and supplier of OEM replacement air filters, oil filters, air-oil separators, and hydraulic filters for screw air compressors.",
+    "foundingLocation": "New Delhi, India",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9810329240",
+      "contactType": "sales",
+      "email": "jatin.kenrax@gmail.com",
+      "availableLanguage": ["English", "Hindi"]
+    },
+    "sameAs": [
+      "https://wa.me/919810329240",
+      "https://kenrax.in"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressCountry": "IN"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <Hero151 />
       <Stats8 />
       <Logos3 />

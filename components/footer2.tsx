@@ -73,6 +73,7 @@ const Footer2 = ({
   bottomLinks = [
     { text: "Terms and Conditions", url: "/terms.html" },
     { text: "Privacy Policy", url: "/privacy.html" },
+    { text: "Disclaimer", url: "/disclaimer.html" },
   ],
 }: Footer2Props) => {
   return (
