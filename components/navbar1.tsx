@@ -80,8 +80,8 @@ const Navbar1 = ({
       url: "/#faq",
     },
     {
-      title: "About Us",
-      url: "/#AboutUs",
+      title: "Company Profile",
+      url: "/company-profile",
     },
   ],
   auth = {

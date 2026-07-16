@@ -27,13 +27,13 @@ const Logos3 = ({
   heading = "OEM Spare Parts for",
 }: Logos3Props) => {
   return (
-    <section className="pt-12">
+    <section className="pt-6">
       <div className="container flex flex-col">
-        <h1 className="mt-6 text-2xl font-bold tracking-tight md:text-4xl">
+        <h1 className="mt-4 text-2xl font-bold tracking-tight md:text-4xl">
           {heading}
         </h1>
       </div>
-      <div className="pt-16 overflow-hidden">
+      {/* <div className="pt-8 overflow-hidden">
         <div className="relative mx-auto flex items-center justify-center lg:max-w-5xl">
           <Carousel
             opts={{ loop: true }}
@@ -66,7 +66,7 @@ const Logos3 = ({
         <div className="mt-16 text-xs text-muted-foreground">
           Logos of OEMs shown—like Atlas Copco, Ingersoll Rand, Elgi, etc.—belong to their respective owners. Kenrax Industries is not affiliated with them; logos are used only to indicate product compatibility.
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
