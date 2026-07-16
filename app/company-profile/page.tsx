@@ -52,6 +52,7 @@ export default function CompanyProfile() {
       <ProfileHero />
       <ProfileAbout />
       <ProfileCapabilities />
+      <ProfileProducts />
       <section className="py-16 md:py-24 print-break-before flex items-center justify-center">
         <img
           src="/media/gandr-collage.jpg"
@@ -60,7 +61,6 @@ export default function CompanyProfile() {
         />
       </section>
       <ProfileMachinery />
-      <ProfileProducts />
       <ProfileTesting />
       <ProfileStats />
       <Logos3 heading="Trusted by Leading Compressor Brands" />
