@@ -66,12 +66,13 @@ export const metadata: Metadata = {
     type: "website",
     title: "Products - Air Oil Filters, Separators | Kenrax",
     description: "Explore Kenrax's wide range of OEM replacement air filters, oil filters, air-oil separators, and hydraulic filters for industrial air compressors including Atlas Copco, Ingersoll Rand, Elgi, CP, Kaeser, and more. Built for performance and reliability.",
+    siteName: "Kenrax Industries",
     images: [
       {
-        url: `https://kenrax.in/og_image.png`,
-        width: 640,
-        height: 800,
-        alt: "Kenrax"
+        url: `https://kenrax.in/og_image.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Kenrax Industries - Air Compressor Filters"
       }
     ]
   },
@@ -81,10 +82,10 @@ export const metadata: Metadata = {
     description: "Explore Kenrax's wide range of OEM replacement air filters, oil filters, air-oil separators, and hydraulic filters for industrial air compressors including Atlas Copco, Ingersoll Rand, Elgi, CP, Kaeser, and more. Built for performance and reliability.",
     images: [
       {
-        url: `https://kenrax.in/og_image.png`,
-        width: 640,
-        height: 800,
-        alt: "Kenrax"
+        url: `https://kenrax.in/og_image.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Kenrax Industries - Air Compressor Filters"
       }
     ]
   },

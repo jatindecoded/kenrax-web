@@ -4,72 +4,437 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms and Conditions | Kenrax Industries</title>
+    <meta name="description" content="Read the Terms and Conditions for Kenrax Industries — aftermarket air compressor filters, oil filters, and separators. Covers orders, payment, shipping, warranty, liability, and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kenrax.in/terms.html" />
+    <meta property="og:title" content="Terms and Conditions | Kenrax Industries" />
+    <meta property="og:description" content="Read the Terms and Conditions for Kenrax Industries — aftermarket air compressor filters, oil filters, and separators. Covers orders, payment, shipping, warranty, liability, and more." />
+    <meta property="og:site_name" content="Kenrax Industries" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Terms and Conditions | Kenrax Industries" />
+    <meta name="twitter:description" content="Read the Terms and Conditions for Kenrax Industries — aftermarket air compressor filters, oil filters, and separators. Covers orders, payment, shipping, warranty, liability, and more." />
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; color: #1a1a2e; }
-        h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.2rem; margin-top: 2rem; }
-        p, li { font-size: 0.95rem; color: #333; }
-        ul { padding-left: 1.5rem; }
-        strong { color: #1a1a2e; }
-        .last-updated { color: #666; font-size: 0.85rem; }
+        @media screen {
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+                line-height: 1.7;
+                color: #1a1a2e;
+            }
+            .acceptance-form {
+                margin-top: 3rem;
+                border: 2px solid #1a1a2e;
+                border-radius: 8px;
+                padding: 2rem;
+                background: #fafafa;
+            }
+            .scroll-btn {
+                display: block;
+                width: 100%;
+                margin: 1.5rem 0 0 0;
+                padding: 0.75rem;
+                background: #1a1a2e;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: center;
+            }
+            .scroll-btn:hover {
+                background: #2a2a4e;
+            }
+            .acceptance-form h2 {
+                margin-top: 0;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+            .form-row {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+            }
+            .form-group {
+                flex: 1;
+                min-width: 250px;
+            }
+            .form-group label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 0.25rem;
+                font-size: 0.9rem;
+            }
+            .form-group input {
+                width: 100%;
+                padding: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 0.95rem;
+                box-sizing: border-box;
+            }
+            .checkbox-row {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin: 1.5rem 0;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            .checkbox-row input[type="checkbox"] {
+                margin-top: 0.3rem;
+                flex-shrink: 0;
+            }
+            .signature-box {
+                border: 1px solid #1a1a2e;
+                border-radius: 4px;
+                height: 120px;
+                display: flex;
+                align-items: flex-end;
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+                position: relative;
+            }
+            .signature-box::after {
+                content: 'Please sign here after printing this document';
+                position: absolute;
+                bottom: 0.5rem;
+                left: 0.5rem;
+                font-size: 0.75rem;
+                color: #999;
+            }
+            .print-btn {
+                display: block;
+                width: 100%;
+                margin-top: 1.5rem;
+                padding: 0.75rem;
+                background: #1a1a2e;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                text-align: center;
+            }
+            .print-btn:hover {
+                background: #2a2a4e;
+            }
+            .print-btn:disabled {
+                background: #ccc;
+                cursor: not-allowed;
+            }
+        }
+
+        @media print {
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                max-width: 100%;
+                margin: 0;
+                padding: 1.5rem 2rem;
+                line-height: 1.6;
+                color: #000;
+                font-size: 11pt;
+            }
+            h1 { font-size: 18pt; margin-bottom: 0.3rem; }
+            h2 { font-size: 13pt; margin-top: 1.5rem; margin-bottom: 0.3rem; border-bottom: 1px solid #000; padding-bottom: 0.2rem; }
+            p, li { font-size: 11pt; }
+            .last-updated { font-size: 10pt; color: #555; }
+            .no-print { display: none !important; }
+            .acceptance-form {
+                border: 1px solid #000;
+                border-radius: 0;
+                padding: 1.5rem;
+                background: none;
+                margin-top: 2rem;
+                page-break-inside: avoid;
+            }
+            .acceptance-form h2 { border-bottom: none; font-size: 14pt; }
+            .form-row { display: flex; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+            .form-group { flex: 1; min-width: 250px; }
+            .form-group label { display: block; font-weight: bold; margin-bottom: 0.15rem; font-size: 10pt; }
+            .form-group input {
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #000;
+                padding: 0.25rem 0;
+                font-size: 11pt;
+                background: transparent;
+                -webkit-appearance: none;
+                border-radius: 0;
+            }
+            .checkbox-row { margin: 1rem 0; font-size: 10.5pt; }
+            .checkbox-row input[type="checkbox"] { margin-top: 0.2rem; }
+            .signature-box {
+                border: 1px solid #000;
+                border-radius: 0;
+                height: 100px;
+                margin-top: 0.5rem;
+            }
+            .signature-box::after { color: #666; font-size: 9pt; }
+            .print-btn { display: none !important; }
+            .print-header {
+                display: block !important;
+                border: 1px solid #000;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                font-size: 10.5pt;
+                page-break-after: avoid;
+            }
+            .print-header h3 { margin: 0 0 0.5rem 0; font-size: 12pt; }
+            .print-header p { margin: 0.25rem 0; font-size: 10.5pt; }
+        }
     </style>
 </head>
 <body>
+    <div class="print-header no-print" style="display:none;">
+        <h3>ACCEPTANCE RECORD</h3>
+        <p>This document constitutes a binding agreement between the signatory and Kenrax Industries.</p>
+    </div>
+
     <h1>Terms and Conditions</h1>
-    <p class="last-updated"><strong>Last Updated:</strong> June 2026</p>
+    <p class="last-updated"><strong>Last Updated:</strong> July 2026</p>
+    <button class="scroll-btn no-print" onclick="document.getElementById('acceptance').scrollIntoView({behavior:'smooth'})">Accept Terms &amp; Conditions</button>
 
-    <p>Welcome to Kenrax Industries. By accessing or using this website, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use this site.</p>
+    <p>These Terms and Conditions ("Terms") govern the sale of products and provision of services by Kenrax Industries ("Kenrax", "we", "us", "our") to any purchaser, buyer, or customer ("Buyer", "you", "your"). By placing an order, making a payment, or receiving delivery of products from Kenrax, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety. If you do not agree, do not place an order.</p>
 
-    <h2>1. Company Information</h2>
+    <h2>1. Definitions</h2>
+    <ul>
+        <li><strong>"Aftermarket"</strong> — any part, component, or product not manufactured by or for the Original Equipment Manufacturer ("OEM") of the equipment in which it is installed.</li>
+        <li><strong>"OEM"</strong> — Original Equipment Manufacturer, being the entity that originally manufactured the equipment for which our products serve as replacement parts.</li>
+        <li><strong>"Cross-reference"</strong> — any OEM part number, model number, or identifier used on this website solely to indicate compatibility or interchangeability with our products.</li>
+        <li><strong>"Buyer"</strong> — any person, firm, company, or entity that places an order with or receives products from Kenrax.</li>
+        <li><strong>"Dispatch"</strong> — the point at which products leave Kenrax's facility or designated shipping location.</li>
+        <li><strong>"Delivery"</strong> — the point at which products arrive at the Buyer's designated receiving location.</li>
+        <li><strong>"Defect"</strong> — a manufacturing flaw present at the time of dispatch, excluding wear, misuse, improper installation, or modification.</li>
+        <li><strong>"Force Majeure"</strong> — any event beyond the reasonable control of Kenrax, as defined in Section 14 of these Terms.</li>
+    </ul>
+
+    <h2>2. Company Information</h2>
     <p><strong>Kenrax Industries</strong><br />
     New Delhi, India<br />
     Email: jatin.kenrax@gmail.com<br />
     Phone: +91-9810329240</p>
 
-    <h2>2. Aftermarket Parts & OEM Disclaimer</h2>
-    <p>All products sold by Kenrax Industries are <strong>aftermarket replacement parts</strong>. They are NOT genuine Original Equipment Manufacturer (OEM) parts unless explicitly stated.</p>
-    <p>Trademarks, brand names, logos, and model numbers referenced on this website (including but not limited to Atlas Copco, Ingersoll Rand, Elgi, Kaeser, Chicago Pneumatic, CP, Kirloskar, Gardner Denver, CompAir, Mann, Donaldson, and KG Khosla) are the property of their respective owners. Kenrax Industries is <strong>not affiliated with, sponsored by, or endorsed by</strong> any OEM.</p>
-    <p>OEM part numbers and cross-references are used solely to indicate product compatibility and interchangeability for identification purposes only.</p>
+    <h2>3. Scope and Acceptance</h2>
+    <p>These Terms constitute a binding agreement between Kenrax and the Buyer upon the earlier of: (a) placement of an order by the Buyer; (b) payment by the Buyer; or (c) receipt of products by the Buyer. These Terms apply to all sales, whether made to businesses, dealers, distributors, retailers, or individual consumers.</p>
+    <p>No agent, employee, or representative of Kenrax has any authority to modify, amend, or waive any provision of these Terms. Any purported modification or waiver shall be void unless in writing and signed by an authorised representative of Kenrax.</p>
+    <p>The Buyer is deemed to have read, understood, and accepted these Terms in full prior to placing any order. Placing an order constitutes unconditional acceptance of these Terms.</p>
 
-    <h2>3. Use of the Website</h2>
-    <p>This website is intended for businesses, dealers, distributors, and professionals sourcing air compressor spares and replacement filters. You agree to use this site only for lawful purposes and in a manner that does not infringe the rights of others.</p>
+    <h2>4. Aftermarket Parts and OEM Disclaimer</h2>
+    <p>All products sold by Kenrax are <strong>aftermarket replacement parts</strong> unless explicitly and in writing stated to be genuine OEM parts. Kenrax is not an authorised distributor, dealer, or agent of any OEM.</p>
+    <p>Trademarks, brand names, logos, trade names, and model numbers of any OEM (including but not limited to Atlas Copco, Ingersoll Rand, Elgi, Kaeser, Chicago Pneumatic, Kirloskar, Gardner Denver, CompAir, Mann, Donaldson, and KG Khosla) are used on this website solely for the purpose of indicating product compatibility and interchangeability. Such use is for identification purposes only and does not imply endorsement, sponsorship, affiliation, or approval by any OEM.</p>
+    <p>Cross-reference part numbers and compatibility information are provided for identification purposes only and do not constitute a guarantee of fitment, performance, or equivalence to OEM parts.</p>
+    <p><strong>The Buyer expressly acknowledges and agrees that:</strong></p>
+    <ul>
+        <li>Products are aftermarket and not OEM-manufactured unless explicitly stated;</li>
+        <li>The Buyer shall not represent, market, or sell Kenrax products as genuine OEM parts;</li>
+        <li>The Buyer assumes all risk and liability arising from any objection, claim, or legal action by any OEM in connection with the purchase, use, resale, or distribution of Kenrax products;</li>
+        <li>Kenrax shall have no obligation to defend, indemnify, or hold the Buyer harmless against any OEM objection or intellectual property claim.</li>
+    </ul>
 
-    <h2>4. Products, Pricing & Availability</h2>
-    <p>All product descriptions, specifications, images, and pricing are provided for reference only and may change without prior notice. We make every effort to ensure accuracy but do not guarantee that all information is error-free, complete, or current.</p>
-    <p>We reserve the right to modify or discontinue products without notice. Prices are subject to change. Orders are subject to acceptance and availability.</p>
+    <h2>5. Product Descriptions and Fitment</h2>
+    <p>All product descriptions, specifications, dimensions, images, diagrams, and cross-reference data on this website are provided for general information purposes only and are believed to be accurate at the time of publication. However, Kenrax does not warrant that such information is complete, current, error-free, or fit for any particular purpose.</p>
+    <p><strong>The Buyer is solely responsible for independently verifying that all products are compatible with, and suitable for, the Buyer's specific equipment and application prior to placing an order.</strong> This includes, without limitation, verifying physical dimensions, thread types, pressure ratings, flow rates, temperature ratings, and material compatibility.</p>
+    <p>Kenrax shall have no liability whatsoever for any loss, damage, cost, or expense arising from the Buyer's failure to verify fitment, specifications, or compatibility before ordering.</p>
 
-    <h2>5. Compatibility & Fitment</h2>
-    <p>Compatibility information provided on this website is based on industry cross-reference data and is believed to be accurate. However, we recommend verifying fitment, dimensions, and specifications before purchase. Kenrax Industries shall not be held liable for any issues arising from incorrect fitment or selection of parts.</p>
+    <h2>6. Orders, Pricing, and Payment</h2>
+    <p>All orders are subject to confirmation of availability and pricing at the time of order. Kenrax reserves the right to accept or decline any order at its sole discretion.</p>
+    <p><strong>Payment shall be made in full in advance prior to dispatch.</strong> Kenrax does not extend credit terms unless expressly agreed in writing by an authorised representative of Kenrax. No order shall be binding on Kenrax until full payment has been received and cleared.</p>
+    <p>Prices listed on the website or in any quotation, catalogue, or communication are indicative and subject to change without prior notice. The price applicable shall be the price confirmed at the time of order acceptance by Kenrax.</p>
+    <p>Kenrax reserves the right to cancel any order, in whole or in part, at any time prior to dispatch, without liability, for any reason including but not limited to stock unavailability, pricing errors, or force majeure events.</p>
+    <p>All payments shall be made in Indian Rupees (INR) unless otherwise agreed in writing. Any bank charges, transaction fees, or currency conversion costs shall be borne entirely by the Buyer.</p>
 
-    <h2>6. Orders & Payment</h2>
-    <p>All orders are subject to confirmation of availability and pricing. Payment terms will be communicated at the time of order. We reserve the right to cancel any order at our discretion.</p>
+    <h2>7. Inspection and Acceptance</h2>
+    <p><strong>The Buyer shall inspect all products within forty-eight (48) hours of delivery.</strong> This inspection period is mandatory and non-extendable.</p>
+    <p>Any claim for visible damage, shortage, incorrect product, or discrepancy must be reported in writing to Kenrax within the forty-eight (48) hour inspection period. The report must include: (a) the order number; (b) photographs of the damaged, defective, or incorrect products; (c) a written description of the issue; and (d) the quantity affected.</p>
+    <p><strong>Failure to report any issue within the forty-eight (48) hour inspection period shall constitute unconditional and irrevocable acceptance of the products, and the Buyer shall be deemed to have waived all claims whatsoever.</strong></p>
+    <p>Reporting an issue within the forty-eight (48) hour period does not entitle the Buyer to any remedy. All reports will be reviewed at Kenrax's sole discretion, and Kenrax is under no obligation to provide any remedy, replacement, refund, or compensation of any kind.</p>
+    <p>Products shall be deemed accepted for all purposes upon the expiry of the forty-eight (48) hour inspection period, regardless of whether the Buyer has actually inspected the products.</p>
 
-    <h2>7. Shipping & Delivery</h2>
-    <p>Shipping times are estimates and not guaranteed. We are not liable for delays caused by third-party carriers, customs clearance, or force majeure events. Risk of loss passes to the buyer upon delivery to the carrier.</p>
+    <h2>8. Transport and Risk of Loss</h2>
+    <p><strong>Risk of loss, damage, or deterioration of products shall pass to the Buyer upon dispatch from Kenrax's facility or designated shipping location.</strong> From the point of dispatch, the Buyer assumes full responsibility for the products.</p>
+    <p>The choice of carrier, shipping method, and routing is at Kenrax's discretion unless the Buyer has specifically arranged and paid for a designated carrier. Where the Buyer arranges their own carrier, Kenrax shall have no liability for any loss or damage occurring after handover to the carrier.</p>
+    <p>Any claim for loss or damage during transit must be filed by the Buyer directly with the carrier. Kenrax may, at its sole discretion, provide reasonable assistance or documentation to support such claims, but Kenrax assumes no liability and has no obligation to pursue, settle, or resolve transit claims on behalf of the Buyer.</p>
+    <p>Delivery dates and shipping times provided by Kenrax are estimates only and are not guaranteed. Kenrax shall not be liable for any delay in delivery, however caused.</p>
 
-    <h2>8. Returns, Refunds & Warranty</h2>
-    <p>Returns are accepted subject to our return policy. Products must be unused and in original packaging. Warranty, if applicable, is limited to manufacturing defects and does not cover misuse, improper installation, normal wear and tear, or unauthorized modifications. Claims must be reported within the specified timeframe from delivery.</p>
-
-    <h2>9. Intellectual Property</h2>
-    <p>All content on this website — including text, images, logos, product descriptions, and design — is owned by or licensed to Kenrax Industries and is protected by applicable intellectual property laws. You may not reproduce, distribute, or republish any content without prior written permission.</p>
+    <h2>9. Warranty Disclaimer</h2>
+    <p><strong>ALL PRODUCTS ARE SOLD "AS-IS" AND "WITH ALL FAULTS." KENRAX MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR ANY WARRANTY ARISING FROM COURSE OF DEALING, USAGE, OR TRADE PRACTICE.</strong></p>
+    <p><strong>KENRAX DOES NOT WARRANT THAT PRODUCTS WILL CONFORM TO ANY SPECIFICATION, WILL BE FIT FOR ANY PARTICULAR PURPOSE, WILL MEET THE BUYER'S EXPECTATIONS, OR WILL BE FREE FROM DEFECTS.</strong></p>
+    <p><strong>SOLE REMEDY:</strong> In the event that a product is found to have a manufacturing defect attributable to Kenrax, Kenrax may, at its <strong>absolute and sole discretion</strong>, elect to replace the defective product, provided that:</p>
+    <ul>
+        <li>The defect is reported in writing within the forty-eight (48) hour inspection period;</li>
+        <li>Satisfactory photographic and written evidence of the defect is provided;</li>
+        <li>The product has not been subjected to misuse, improper installation, modification, or abnormal conditions;</li>
+        <li>Kenrax has inspected the product and confirmed, in its sole opinion, that a manufacturing defect exists.</li>
+    </ul>
+    <p><strong>NOTHING IN THIS SECTION OR ELSEWHERE IN THESE TERMS SHALL BE CONSTRUED AS AN OBLIGATION ON THE PART OF KENRAX TO REPLACE, REPAIR, REFUND, CREDIT, OR COMPENSATE THE BUYER IN ANY MANNER WHATSOEVER. ANY REMEDY PROVIDED BY KENRAX IS PROVIDED VOLUNTARILY AND AT ITS ABSOLUTE DISCRETION, AND THE BUYER SHALL HAVE NO RIGHT TO DEMAND ANY REMEDY.</strong></p>
+    <p><strong>KENRAX SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR PUNITIVE DAMAGES ARISING OUT OF ANY PRODUCT DEFECT, INCLUDING BUT NOT LIMITED TO EQUIPMENT DOWNTIME, BUSINESS INTERRUPTION, LOSS OF PROFITS, LOSS OF REVENUE, PERSONAL INJURY, PROPERTY DAMAGE, OR ANY OTHER LOSS WHATSOEVER.</strong></p>
 
     <h2>10. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by law, Kenrax Industries shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to the use of this website or the purchase or use of any products, including but not limited to damages for loss of profits, business interruption, or loss of data.</p>
-    <p>Our total liability for any claim shall not exceed the amount paid by the buyer for the specific product giving rise to the claim.</p>
+    <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, KENRAX'S TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF OR IN CONNECTION WITH THE SALE, DELIVERY, USE, OR INABILITY TO USE ANY PRODUCT SHALL NOT EXCEED THE TOTAL AMOUNT ACTUALLY PAID BY THE BUYER TO KENRAX FOR THE SPECIFIC PRODUCT GIVING RISE TO THE CLAIM.</strong></p>
+    <p><strong>IN NO EVENT SHALL KENRAX BE LIABLE FOR ANY:</strong></p>
+    <ul>
+        <li>Indirect, incidental, special, consequential, or exemplary damages;</li>
+        <li>Loss of profits, revenue, business, data, or goodwill;</li>
+        <li>Equipment downtime, production delays, or business interruption;</li>
+        <li>Personal injury or death;</li>
+        <li>Property damage (except to the product itself);</li>
+        <li>Claims arising from OEM intellectual property objections;</li>
+        <li>Claims arising from regulatory non-compliance by the Buyer;</li>
+        <li>Claims arising from the Buyer's failure to verify fitment or specifications;</li>
+        <li>Claims arising from the Buyer's improper installation or use of products;</li>
+        <li>Any claim not reported within the forty-eight (48) hour inspection period.</li>
+    </ul>
+    <p>The limitations in this section apply regardless of the form of action, whether in contract, tort (including negligence), strict liability, or any other legal theory, and even if Kenrax has been advised of the possibility of such damages.</p>
 
     <h2>11. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Kenrax Industries, its owners, employees, and affiliates from any claims, damages, liabilities, costs, or expenses (including legal fees) arising from your use of this website, your violation of these terms, or your misuse of any products purchased.</p>
+    <p><strong>The Buyer shall indemnify, defend, and hold harmless Kenrax Industries, its owners, directors, officers, employees, agents, and affiliates from and against any and all claims, demands, actions, proceedings, losses, damages, liabilities, costs, charges, and expenses (including legal fees on a full indemnity basis) arising out of or in connection with:</strong></p>
+    <ul>
+        <li>The Buyer's use, installation, modification, or resale of products;</li>
+        <li>The Buyer's misrepresentation of products as OEM parts;</li>
+        <li>The Buyer's failure to independently verify fitment, specifications, or compatibility;</li>
+        <li>Any objection, claim, or legal action by any OEM in connection with Kenrax products;</li>
+        <li>Any personal injury or property damage caused by the Buyer's installation or use of products;</li>
+        <li>Any regulatory non-compliance by the Buyer in connection with the purchase, sale, or distribution of products;</li>
+        <li>The Buyer's breach of any provision of these Terms;</li>
+        <li>Any third-party claim arising from the Buyer's acts or omissions.</li>
+    </ul>
+    <p>This indemnification obligation shall survive the termination, expiry, or cessation of these Terms and any transaction between the parties.</p>
 
-    <h2>12. Third-Party Links</h2>
-    <p>This website may contain links to third-party websites. We are not responsible for the content, privacy practices, or terms of those sites.</p>
+    <h2>12. Legal Costs</h2>
+    <p><strong>The Buyer shall bear all legal costs, fees, charges, and expenses incurred by Kenrax in connection with any dispute, claim, complaint, proceeding, or threatened litigation arising out of or in connection with these Terms, the sale of any product, or the Buyer's use of any product.</strong></p>
+    <p>Such costs include, without limitation, advocate fees (on a full indemnity basis), court fees, arbitration costs, tribunal fees, investigation costs, expert fees, travel expenses, and all incidental and ancillary costs.</p>
+    <p><strong>The obligation to bear legal costs shall apply regardless of the outcome of any dispute or proceeding, and regardless of whether Kenrax is the claimant, respondent, or third party.</strong></p>
+    <p>This obligation shall survive the termination, expiry, or cessation of these Terms and any transaction between the parties.</p>
 
-    <h2>13. Governing Law & Dispute Resolution</h2>
-    <p>These terms are governed by the laws of India. Any disputes arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the courts in New Delhi, India.</p>
+    <h2>13. Intellectual Property</h2>
+    <p>All content on this website — including but not limited to text, images, logos, product descriptions, graphics, layout, design, and code — is owned by or licensed to Kenrax Industries and is protected by applicable intellectual property laws.</p>
+    <p>The Buyer shall not reproduce, duplicate, copy, sell, resell, distribute, scrape, crawl, or exploit any content from this website for any purpose without the prior written consent of Kenrax.</p>
+    <p>Any use of OEM trademarks on this website is for product identification purposes only under the doctrine of nominative fair use and does not grant the Buyer any rights to use such trademarks.</p>
 
-    <h2>14. Changes to Terms</h2>
-    <p>We reserve the right to update these Terms and Conditions at any time. Changes will be effective immediately upon posting. Continued use of the website after changes constitutes acceptance of the updated terms.</p>
+    <h2>14. Force Majeure</h2>
+    <p><strong>Kenrax shall not be liable for any failure or delay in the performance of its obligations under these Terms where such failure or delay results from any cause beyond Kenrax's reasonable control,</strong> including but not limited to:</p>
+    <ul>
+        <li>Acts of God, including but not limited to earthquakes, floods, storms, hurricanes, typhoons, droughts, landslides, tsunamis, and volcanic eruptions;</li>
+        <li>Pandemic, epidemic, quarantine, or public health emergency;</li>
+        <li>War, armed conflict, terrorism, insurrection, civil unrest, or riots;</li>
+        <li>Government action, sanctions, embargoes, trade restrictions, regulatory changes, or court orders;</li>
+        <li>Fire, explosion, or structural failure;</li>
+        <li>Strikes, lockouts, labour disputes, or industrial action;</li>
+        <li>Supply chain disruption, raw material shortage, or commodity unavailability;</li>
+        <li>Failure of power supply, telecommunications, or internet infrastructure;</li>
+        <li>Cyberattack, ransomware, or information security incident;</li>
+        <li>Transportation disruption, port closures, or carrier unavailability;</li>
+        <li>Any other event of similar nature beyond the reasonable control of Kenrax.</li>
+    </ul>
+    <p>Upon the occurrence of a Force Majeure event, Kenrax may suspend, delay, or cancel any affected order without liability to the Buyer. Kenrax shall use reasonable endeavours to resume performance as soon as practicable but makes no guarantee regarding the timeline for resumption.</p>
 
-    <h2>15. Contact</h2>
-    <p>For questions about these terms, please contact us at: <strong>jatin.kenrax@gmail.com</strong></p>
+    <h2>15. Severability</h2>
+    <p>If any provision of these Terms is found by any court or authority of competent jurisdiction to be invalid, illegal, or unenforceable, such provision shall be modified to the minimum extent necessary to make it valid and enforceable, or if modification is not possible, it shall be severed from these Terms. The remaining provisions shall continue in full force and effect.</p>
+
+    <h2>16. Entire Agreement</h2>
+    <p>These Terms, together with any order confirmation issued by Kenrax, constitute the entire agreement between the parties with respect to the subject matter hereof and supersede all prior and contemporaneous agreements, representations, warranties, and understandings, whether oral or written.</p>
+    <p>No oral statement, representation, promise, or understanding made by any agent, employee, or representative of Kenrax shall be binding on Kenrax unless confirmed in writing and signed by an authorised representative of Kenrax.</p>
+    <p>No failure or delay by Kenrax in exercising any right, power, or privilege under these Terms shall operate as a waiver thereof, nor shall any single or partial exercise of any right, power, or privilege preclude any further exercise thereof.</p>
+
+    <h2>17. Governing Law and Jurisdiction</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of laws principles.</p>
+    <p><strong>The courts in New Delhi, India shall have exclusive jurisdiction over any dispute, controversy, or claim arising out of or in connection with these Terms, the sale of any product, or the relationship between Kenrax and the Buyer.</strong></p>
+    <p>The Buyer irrevocably submits to the exclusive jurisdiction of the courts in New Delhi and waives any objection to the laying of venue in such courts, including on the basis of inconvenient forum.</p>
+
+    <h2>18. Changes to Terms</h2>
+    <p>Kenrax reserves the right to modify, amend, or replace these Terms at any time without prior notice. The amended Terms shall be effective immediately upon posting on this website.</p>
+    <p>The Buyer's continued placement of orders or acceptance of products following any changes to these Terms shall constitute the Buyer's acceptance of the amended Terms. It is the Buyer's responsibility to review these Terms periodically.</p>
+
+    <h2>19. Contact</h2>
+    <p>For any questions regarding these Terms, please contact:</p>
+    <p><strong>Kenrax Industries</strong><br />
+    Email: jatin.kenrax@gmail.com<br />
+    Phone: +91-9810329240</p>
+
+    <div class="acceptance-form" id="acceptance">
+        <h2>ACCEPTANCE OF TERMS AND CONDITIONS</h2>
+        <p>I, the undersigned, confirm that I have read, understood, and agree to be bound by the Terms and Conditions set forth above. I acknowledge that I have had the opportunity to seek independent legal advice prior to accepting these Terms.</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="fullName" required />
+            </div>
+            <div class="form-group">
+                <label>Company Name *</label>
+                <input type="text" id="companyName" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>GST Number</label>
+                <input type="text" id="gstNumber" />
+            </div>
+            <div class="form-group">
+                <label>Designation *</label>
+                <input type="text" id="designation" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+                <label>Date *</label>
+                <input type="text" id="date" readonly />
+            </div>
+        </div>
+
+        <div class="checkbox-row">
+            <input type="checkbox" id="acceptTerms" required />
+            <label for="acceptTerms">I have read, understood, and agree to be bound by these Terms and Conditions. I acknowledge that these Terms limit the liability of Kenrax and that I am waiving certain rights by accepting them.</label>
+        </div>
+
+        <label style="font-weight: 600; font-size: 0.9rem;">Signature</label>
+        <div class="signature-box"></div>
+
+        <button class="print-btn" id="printBtn" onclick="printTerms()" disabled>Download / Print PDF</button>
+    </div>
+
+    <script>
+        // Auto-fill date
+        const dateField = document.getElementById('date');
+        const today = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dateField.value = today.toLocaleDateString('en-GB', options);
+
+        // Enable/disable print button based on required fields
+        const requiredFields = ['fullName', 'companyName', 'designation', 'email'];
+        const checkbox = document.getElementById('acceptTerms');
+        const printBtn = document.getElementById('printBtn');
+
+        function checkForm() {
+            const allFilled = requiredFields.every(id => document.getElementById(id).value.trim() !== '');
+            printBtn.disabled = !(allFilled && checkbox.checked);
+        }
+
+        requiredFields.forEach(id => {
+            document.getElementById(id).addEventListener('input', checkForm);
+        });
+        checkbox.addEventListener('change', checkForm);
+
+        function printTerms() {
+            // Show the print header
+            document.querySelector('.print-header').style.display = 'block';
+            window.print();
+            // Hide it again after print dialog closes
+            setTimeout(() => {
+                document.querySelector('.print-header').style.display = 'none';
+            }, 500);
+        }
+    </script>
 </body>
 </html>

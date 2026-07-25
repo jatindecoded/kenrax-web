@@ -91,7 +91,7 @@ export const metadata: Metadata = {
       "Established Indian manufacturer of precision filtration products for industrial compressed air systems. 30+ years of manufacturing excellence.",
     images: [
       {
-        url: "https://kenrax.in/og_image.png",
+        url: "https://kenrax.in/og_image.webp",
         width: 640,
         height: 800,
         alt: "Kenrax Industries Company Profile",
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
       "Established Indian manufacturer of precision filtration products for industrial compressed air systems. 30+ years of manufacturing excellence.",
     images: [
       {
-        url: "https://kenrax.in/og_image.png",
+        url: "https://kenrax.in/og_image.webp",
         width: 640,
         height: 800,
         alt: "Kenrax Industries Company Profile",
