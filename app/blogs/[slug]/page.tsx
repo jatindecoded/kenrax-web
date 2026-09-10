@@ -63,7 +63,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 
 	const { slug } = await params;
-	const blog = blogs.find(blog => toKebabCase(blog.title) === slug);
+	const blog = blogs.find(blog => blog.slug === slug);
 
 	if (!blog) return {};
 

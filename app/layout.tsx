@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     default: properties["company.name"].value.split(" ")[0] + " - Air Oil Filters, Separators",
     template: "%s | Kenrax",
   },
-  description: "Kenrax manufactures replacement compressor air-oil filters and separators for OEMs like Atlas Copco, Ingersoll Rand, Elgi, Kaeser etc. Based in Delhi, India.",
+  description: "Kenrax is India's leading manufacturer of replacement air filters, oil filters, air-oil separators, and hydraulic filters for screw air compressors. OEM-quality for Atlas Copco, Ingersoll Rand, Elgi, Kaeser.",
   openGraph: {
     siteName: "Kenrax - Air Oil Filters, Separators",
     type: "website",

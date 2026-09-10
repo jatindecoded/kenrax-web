@@ -112,4 +112,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: "https://kenrax.in/company-profile",
+  },
 };

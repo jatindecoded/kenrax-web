@@ -75,7 +75,7 @@ const BlogPost = ({ blog }: { blog: Blog }) => {
 					<img
 						key={idx}
 						src={src}
-						alt="blog graphic"
+						alt={`${title} - illustration`}
 						className="mt-0 mb-8 aspect-video w-full rounded-lg object-cover"
 					/>
 				);
@@ -124,11 +124,11 @@ const BlogPost = ({ blog }: { blog: Blog }) => {
 
 					<article className="mx-auto prose prose-headings:scroll-mt-20 max-w-none dark:prose-invert leading-7">
 						{coverImage && (
-							<img
-								src={coverImage}
-								alt="cover"
-								className="mt-0 mb-8 aspect-video w-full rounded-lg object-cover"
-							/>
+						<img
+							src={coverImage}
+							alt={`${title} - cover image`}
+							className="mt-0 mb-8 aspect-video w-full rounded-lg object-cover"
+						/>
 						)}
 						{content?.map(renderBlock)}
 					</article>

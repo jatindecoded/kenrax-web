@@ -23,5 +23,8 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Blog - Insights on Air Compressor Filters | Kenrax",
     description: "Get insights on air compressor spares, filters, and industry trends from the Kenrax blog."
-  }
+  },
+  alternates: {
+    canonical: "https://kenrax.in/blogs",
+  },
 };

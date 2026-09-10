@@ -33,7 +33,7 @@ const Logos3 = ({
           {heading}
         </h1>
       </div>
-      {/* <div className="pt-8 overflow-hidden">
+      <div className="pt-8 overflow-hidden">
         <div className="relative mx-auto flex items-center justify-center lg:max-w-5xl">
           <Carousel
             opts={{ loop: true }}
@@ -66,7 +66,7 @@ const Logos3 = ({
         <div className="mt-16 text-xs text-muted-foreground">
           Logos of OEMs shown—like Atlas Copco, Ingersoll Rand, Elgi, etc.—belong to their respective owners. Kenrax Industries is not affiliated with them; logos are used only to indicate product compatibility.
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };
