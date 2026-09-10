@@ -72,6 +72,15 @@ const Navbar1 = ({
       url: "/products",
     },
     {
+      title: "Product Categories",
+      url: "/products",
+      items: [
+        { title: "Air Filters", url: "/air-filter" },
+        { title: "Oil Filters", url: "/oil-filter" },
+        { title: "Air-Oil Separators", url: "/air-oil-separator" },
+      ],
+    },
+    {
       title: "Blog",
       url: "/blogs",
     },

@@ -1,12 +1,11 @@
 import { Team2 } from "@/components/team2";
 import products from "@/lib/products";
 import blogs from "@/data/blogs/blogs.json";
+import { Blog8 } from "@/components/blog8";
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Suspense } from "react";
-import Link from "next/link";
-import Image from "next-export-optimize-images/image";
 
 const oilFilters = products.filter((p) => p.type === "Oil Filter");
 
@@ -65,12 +64,31 @@ const categorySchema = {
 };
 
 export default function OilFilterPage() {
-  const relatedBlogs = blogs.filter(
-    (b) =>
-      b.title.toLowerCase().includes("oil") ||
-      b.title.toLowerCase().includes("filter") ||
-      b.title.toLowerCase().includes("maintenance")
-  );
+  const relatedBlogs = blogs
+    .filter(
+      (b) =>
+        b.title.toLowerCase().includes("oil") ||
+        b.title.toLowerCase().includes("filter") ||
+        b.title.toLowerCase().includes("maintenance")
+    )
+    .map((b) => ({
+      id: b.id,
+      title: b.title,
+      summary:
+        (b.content || [])
+          .map((block: any) =>
+            (block["paragraph"]?.rich_text ?? [])
+              .map((rt: any) => rt.plain_text)
+              .join("")
+          )
+          .join("")
+          .slice(0, 100),
+      label: "Blog",
+      author: "Kenrax Industries",
+      published: b.createdAt,
+      url: `/blogs/${b.slug}`,
+      image: b.coverImage,
+    }));
 
   return (
     <>
@@ -84,11 +102,11 @@ export default function OilFilterPage() {
       />
 
       <section className="py-10">
-        <div className="max-w-4xl">
+        <div className="container flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-4">
             Product Category
           </Badge>
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-pretty lg:text-5xl">
             Oil Filters for Screw Compressors
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
@@ -100,83 +118,114 @@ export default function OilFilterPage() {
       </section>
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
-          What an Oil Filter Does
-        </h2>
-        <p className="text-muted-foreground max-w-3xl mb-4">
-          In a screw compressor, the oil filter continuously removes contaminants
-          from the lubricating oil — carbon deposits, metal shavings, sludge, and
-          particulate matter. Without proper filtration, these contaminants circulate
-          through bearings, rotors, and seals, causing accelerated wear and
-          increasing the risk of unplanned downtime.
-        </p>
-        <p className="text-muted-foreground max-w-3xl">
-          Kenrax oil filters use filtration media matched to the flow rate and
-          pressure of each compressor model, ensuring clean oil delivery to critical
-          components throughout the service interval.
-        </p>
+        <div className="container flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Browse Oil Filters ({oilFilters.length})
+          </h2>
+          <div className="w-full">
+            <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
+              <Team2 products={oilFilters} />
+            </Suspense>
+          </div>
+        </div>
       </section>
 
       <section className="py-8 border-t">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Browse Oil Filters ({oilFilters.length})
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            What an Oil Filter Does
           </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            In a screw compressor, the oil filter continuously removes contaminants
+            from the lubricating oil — carbon deposits, metal shavings, sludge, and
+            particulate matter. Without proper filtration, these contaminants circulate
+            through bearings, rotors, and seals, causing accelerated wear and
+            increasing the risk of unplanned downtime.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            Kenrax oil filters use filtration media matched to the flow rate and
+            pressure of each compressor model, ensuring clean oil delivery to critical
+            components throughout the service interval.
+          </p>
         </div>
-        <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
-          <Team2 products={oilFilters} />
-        </Suspense>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            When to Replace Your Compressor Oil Filter
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            The oil filter is a sacrificial component — it collects what your
+            compressor would otherwise circulate through its bearings, rotors, and
+            seals. For most oil-injected screw compressors the filter is changed
+            alongside the oil every 2000–4000 operating hours, but heavy-duty service
+            or a dusty environment can shorten that interval. Always follow the OEM
+            schedule in your compressor manual, and change the filter whenever you
+            change the oil — never reuse a filter with fresh oil.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            If oil analysis or periodic inspection shows heavy contamination, shorten
+            the interval. Replacing a filter on schedule is a small, predictable cost;
+            the bearing and rotor damage from unfiltered oil is not.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Signs Your Oil Filter Needs Replacing
+          </h2>
+          <ul className="text-muted-foreground max-w-3xl space-y-3 text-left">
+            <li>
+              <b>Elevated discharge temperature</b> — a clogged oil filter restricts
+              oil flow, reducing cooling capacity and running the compressor hot.
+            </li>
+            <li>
+              <b>Higher filter pressure drop</b> — the differential pressure gauge
+              or indicator shows the element loading up with contaminants.
+            </li>
+            <li>
+              <b>Metal particles or sludge in the oil</b> — evidence that abrasive
+              wear is occurring; filter and oil should both be changed.
+            </li>
+            <li>
+              <b>More frequent oil top-ups</b> — increased oil consumption often
+              points to lubrication systems under strain, including a loaded filter.
+            </li>
+          </ul>
+        </div>
       </section>
 
       {relatedBlogs.length > 0 && (
         <section className="py-8 border-t">
-          <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Related Articles
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedBlogs.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blogs/${post.slug}`}
-                className="group rounded-lg border bg-card p-4 hover:shadow-md transition-shadow"
-              >
-                {post.coverImage && (
-                  <Image
-                    src={post.coverImage}
-                    alt={post.title}
-                    width={400}
-                    height={200}
-                    className="rounded-md mb-3 aspect-video object-cover w-full"
-                  />
-                )}
-                <h3 className="font-semibold group-hover:underline">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                  Read more on the Kenrax blog.
-                </p>
-              </Link>
-            ))}
-          </div>
+          <Blog8
+            heading="Related Articles"
+            description="Guides and insights on compressor oil systems, filtration, and maintenance from the Kenrax blog."
+            posts={relatedBlogs}
+          />
         </section>
       )}
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-6">
-          Frequently Asked Questions
-        </h2>
-        <Accordion type="single" collapsible className="w-full max-w-3xl">
-          {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="container flex flex-col items-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible className="w-full max-w-3xl">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger className="text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </section>
     </>
   );

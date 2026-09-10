@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const withExportImages = require('next-export-optimize-images')
+const withExportImages = require("next-export-optimize-images");
 
 const nextConfig: NextConfig = withExportImages({
   output: "export",
