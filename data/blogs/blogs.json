@@ -1880,5 +1880,859 @@
     "coverImage": "/media/abd38b9c-eb09-44ec-a078-2844c94f3d2c-general-3.png",
     "createdAt": "2025-05-18T19:56:00.000Z",
     "updatedAt": "2025-05-19T19:08:00.000Z"
+  },
+  {
+    "id": "373f88e6-77c6-4d71-9171-2709cb13f711",
+    "title": "Air Filter Maintenance Checklist for Screw Compressors",
+    "slug": "air-filter-maintenance-checklist",
+    "content": [
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Why the air filter matters"
+              },
+              "plain_text": "Why the air filter matters",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "The air filter is the first line of defence in a screw compressor. It captures airborne dust and particulates before they reach rotors, bearings, and seals. A clogged filter starves the compressor of air, raising energy use and risking internal contamination."
+              },
+              "plain_text": "The air filter is the first line of defence in a screw compressor. It captures airborne dust and particulates before they reach rotors, bearings, and seals. A clogged filter starves the compressor of air, raising energy use and risking internal contamination.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Step-by-step checklist"
+              },
+              "plain_text": "Step-by-step checklist",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Turn off the compressor and depressurise the system before opening the housing."
+              },
+              "plain_text": "Turn off the compressor and depressurise the system before opening the housing.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Lift the element out and inspect the media against a bright light — dark or oily media has reached end of life."
+              },
+              "plain_text": "Lift the element out and inspect the media against a bright light — dark or oily media has reached end of life.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Clean the housing and intake path to prevent loose debris from entering the machine."
+              },
+              "plain_text": "Clean the housing and intake path to prevent loose debris from entering the machine.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Replace the element with a genuine Kenrax replacement matched to your OEM part number."
+              },
+              "plain_text": "Replace the element with a genuine Kenrax replacement matched to your OEM part number.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Reset the service-hour counter and log the change date for your maintenance records."
+              },
+              "plain_text": "Reset the service-hour counter and log the change date for your maintenance records.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "How often"
+              },
+              "plain_text": "How often",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "In dusty manufacturing floors, inspect every 500–1000 operating hours. In clean, climate-controlled facilities, elements often last 2000–4000 hours. When in doubt, replace it — a filter is far cheaper than a compressor that ingested abrasive dust."
+              },
+              "plain_text": "In dusty manufacturing floors, inspect every 500–1000 operating hours. In clean, climate-controlled facilities, elements often last 2000–4000 hours. When in doubt, replace it — a filter is far cheaper than a compressor that ingested abrasive dust.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Kenrax manufactures air filters engineered to match OEM filtration grade, airflow, and fitment. Contact us with your part number for a direct replacement."
+              },
+              "plain_text": "Kenrax manufactures air filters engineered to match OEM filtration grade, airflow, and fitment. Contact us with your part number for a direct replacement.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      }
+    ],
+    "coverImage": "/media/15d08eec-c740-4d2a-b055-f94201fdf848-2914930200-air-filter.png",
+    "createdAt": "2026-09-01T00:00:00.000Z",
+    "updatedAt": "2026-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "7ea81ba9-61ca-4a50-82ba-f28e9591ef39",
+    "title": "When to Replace Your Compressor Oil Filter",
+    "slug": "when-to-replace-compressor-oil-filter",
+    "content": [
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "The oil filter is a sacrificial component"
+              },
+              "plain_text": "The oil filter is a sacrificial component",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "The oil filter continuously removes carbon deposits, metal shavings, sludge, and particulate from the lubricating oil. Without it, those contaminants circulate through bearings, rotors, and seals and accelerate wear."
+              },
+              "plain_text": "The oil filter continuously removes carbon deposits, metal shavings, sludge, and particulate from the lubricating oil. Without it, those contaminants circulate through bearings, rotors, and seals and accelerate wear.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Replacement intervals"
+              },
+              "plain_text": "Replacement intervals",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "For most oil-injected screw compressors, the filter is changed with the oil every 2000–4000 operating hours. Heavy-duty service or a dusty environment shortens that interval. Always follow the OEM schedule in your compressor manual, and never reuse a filter with fresh oil."
+              },
+              "plain_text": "For most oil-injected screw compressors, the filter is changed with the oil every 2000–4000 operating hours. Heavy-duty service or a dusty environment shortens that interval. Always follow the OEM schedule in your compressor manual, and never reuse a filter with fresh oil.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Signs your oil filter is struggling"
+              },
+              "plain_text": "Signs your oil filter is struggling",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Elevated discharge temperature — restricted oil flow reduces cooling."
+              },
+              "plain_text": "Elevated discharge temperature — restricted oil flow reduces cooling.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Higher filter pressure drop on the differential gauge."
+              },
+              "plain_text": "Higher filter pressure drop on the differential gauge.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Metal particles or sludge visible in drained oil."
+              },
+              "plain_text": "Metal particles or sludge visible in drained oil.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "More frequent oil top-ups without an external leak."
+              },
+              "plain_text": "More frequent oil top-ups without an external leak.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Kenrax oil filters use media matched to the flow rate and pressure of each compressor model. Search by your OEM part number or contact us for a direct replacement."
+              },
+              "plain_text": "Kenrax oil filters use media matched to the flow rate and pressure of each compressor model. Search by your OEM part number or contact us for a direct replacement.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      }
+    ],
+    "coverImage": "/media/01490ceb-c1f9-4f51-8404-6398006d8402-6221372400-2.png",
+    "createdAt": "2026-09-05T00:00:00.000Z",
+    "updatedAt": "2026-09-05T00:00:00.000Z"
+  },
+  {
+    "id": "3a2e80c1-389b-4039-b26f-2a32b19142ed",
+    "title": "5 Signs Your Air-Oil Separator Needs Replacing",
+    "slug": "5-signs-your-air-oil-separator-needs-replacing",
+    "content": [
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Why separator health matters"
+              },
+              "plain_text": "Why separator health matters",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "The air-oil separator removes oil from the compressed air stream. A failing separator raises oil consumption, contaminates downstream equipment, and risks rejected product."
+              },
+              "plain_text": "The air-oil separator removes oil from the compressed air stream. A failing separator raises oil consumption, contaminates downstream equipment, and risks rejected product.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "The five warning signs"
+              },
+              "plain_text": "The five warning signs",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Oil carryover at the discharge — oil mist in the air line or downstream of the aftercooler."
+              },
+              "plain_text": "Oil carryover at the discharge — oil mist in the air line or downstream of the aftercooler.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Rising oil consumption with no external leak — oil is being pushed out with the air."
+              },
+              "plain_text": "Rising oil consumption with no external leak — oil is being pushed out with the air.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Higher pressure drop across the separator — a loaded element restricts airflow and wastes energy."
+              },
+              "plain_text": "Higher pressure drop across the separator — a loaded element restricts airflow and wastes energy.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Visible oil in condensate drains from the receiver or aftercooler."
+              },
+              "plain_text": "Visible oil in condensate drains from the receiver or aftercooler.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Elapsed service interval — separators typically run 4000–8000 hours depending on duty and air quality."
+              },
+              "plain_text": "Elapsed service interval — separators typically run 4000–8000 hours depending on duty and air quality.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "divider",
+        "divider": {}
+      },
+      {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "What to do next"
+              },
+              "plain_text": "What to do next",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "is_toggleable": false,
+          "color": "default"
+        }
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Separators cannot be cleaned and regenerated. Keep a spare on hand and replace on the OEM schedule so a rising differential pressure or visible carryover never forces an unplanned shutdown. Kenrax separators are built to match OEM separation efficiency and pressure drop."
+              },
+              "plain_text": "Separators cannot be cleaned and regenerated. Keep a spare on hand and replace on the OEM schedule so a rising differential pressure or visible carryover never forces an unplanned shutdown. Kenrax separators are built to match OEM separation efficiency and pressure drop.",
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "href": null
+            }
+          ],
+          "color": "default"
+        }
+      }
+    ],
+    "coverImage": "/media/10a7ee2e-8790-4d2a-b78a-58bfca229b9b-kx-aos15.png",
+    "createdAt": "2026-09-08T00:00:00.000Z",
+    "updatedAt": "2026-09-08T00:00:00.000Z"
   }
 ]

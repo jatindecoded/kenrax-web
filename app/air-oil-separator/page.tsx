@@ -1,4 +1,5 @@
 import { Team2 } from "@/components/team2";
+import { TrustBadges } from "@/components/trustBadges";
 import products from "@/lib/products";
 import blogs from "@/data/blogs/blogs.json";
 import { Blog8 } from "@/components/blog8";
@@ -125,7 +126,7 @@ export default function AirOilSeparatorPage() {
       <section className="py-8 border-t">
         <div className="container flex flex-col items-center text-center">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Browse Air-Oil Separators ({separators.length})
+            Browse Air-Oil Separators
           </h2>
           <div className="w-full">
             <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
@@ -134,6 +135,8 @@ export default function AirOilSeparatorPage() {
           </div>
         </div>
       </section>
+
+      <TrustBadges />
 
       <section className="py-8 border-t">
         <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
