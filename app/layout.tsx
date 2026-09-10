@@ -1,5 +1,6 @@
 import { Footer2 } from "@/components/footer2";
 import { Navbar1 } from "@/components/navbar1";
+import { LeadBanner } from "@/components/LeadBanner";
 import properties from "@/data/properties.json";
 import { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
@@ -7,6 +8,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 const InterFont = Geist({ subsets: ["latin"] })
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,
@@ -25,6 +27,16 @@ export default function RootLayout({
         <link rel="llms" href="/llms.txt" type="text/plain" title="Kenrax LLMs.txt" />
         <meta name="google" content="nositelinkssearchbox" />
         <meta name="format-detection" content="telephone=yes" />
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${gaId}');`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body
         className={`antialiased ${InterFont.className}`}
@@ -39,6 +51,7 @@ export default function RootLayout({
               {children}
               {/* </Suspense> */}
             </div>
+            <LeadBanner />
             <Footer2 />
           </div>
         </Providers>
