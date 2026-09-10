@@ -89,7 +89,7 @@ const Hero151 = ({
                     width={250}
                     height={200}
                     src={images.first}
-                    alt=""
+                    alt="Air oil separator filter by Kenrax Industries"
                     className="object-cover h-full w-full object-center"
                   />
                 </div>
@@ -99,7 +99,7 @@ const Hero151 = ({
                     width={250}
                     height={200}
                     src={images.second}
-                    alt=""
+                    alt="Replacement air filter for screw compressors"
                     className="object-cover h-full w-full object-center"
                   />
                 </div>
@@ -109,7 +109,7 @@ const Hero151 = ({
                     width={250}
                     height={200}
                     src={images.third}
-                    alt=""
+                    alt="Oil filter for screw air compressors"
                     className="object-cover h-full w-full object-center"
                   />
                 </div>
@@ -119,7 +119,7 @@ const Hero151 = ({
                     width={250}
                     height={200}
                     src={images.fourth}
-                    alt=""
+                    alt="Kenrax filter manufacturing facility in Delhi"
                     className="object-cover h-full w-full object-center"
                   />
                 </div>
