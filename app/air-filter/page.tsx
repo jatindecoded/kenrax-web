@@ -1,11 +1,10 @@
 import { Team2 } from "@/components/team2";
 import products from "@/lib/products";
 import blogs from "@/data/blogs/blogs.json";
+import { Blog8 } from "@/components/blog8";
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Link from "next/link";
-import Image from "next-export-optimize-images/image";
 import { Suspense } from "react";
 
 const airFilters = products.filter((p) => p.type === "Air Filter");
@@ -70,11 +69,30 @@ const categorySchema = {
 };
 
 export default function AirFilterPage() {
-  const relatedBlogs = blogs.filter(
-    (b) =>
-      b.title.toLowerCase().includes("filter") ||
-      b.title.toLowerCase().includes("air")
-  );
+  const relatedBlogs = blogs
+    .filter(
+      (b) =>
+        b.title.toLowerCase().includes("filter") ||
+        b.title.toLowerCase().includes("air")
+    )
+    .map((b) => ({
+      id: b.id,
+      title: b.title,
+      summary:
+        (b.content || [])
+          .map((block: any) =>
+            (block["paragraph"]?.rich_text ?? [])
+              .map((rt: any) => rt.plain_text)
+              .join("")
+          )
+          .join("")
+          .slice(0, 100),
+      label: "Blog",
+      author: "Kenrax Industries",
+      published: b.createdAt,
+      url: `/blogs/${b.slug}`,
+      image: b.coverImage,
+    }));
 
   return (
     <>
@@ -88,11 +106,11 @@ export default function AirFilterPage() {
       />
 
       <section className="py-10">
-        <div className="max-w-4xl">
+        <div className="container flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-4">
             Product Category
           </Badge>
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-pretty lg:text-5xl">
             Air Filters for Screw Compressors
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
@@ -104,83 +122,115 @@ export default function AirFilterPage() {
       </section>
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
-          What an Air Filter Does
-        </h2>
-        <p className="text-muted-foreground max-w-3xl mb-4">
-          The air filter is the first line of defence in a screw compressor. It
-          captures airborne contaminants before they enter the compression chamber,
-          preventing premature wear on rotors, bearings, and oil seals. A clogged or
-          undersized air filter reduces airflow, increases energy consumption, and
-          risks contaminating the oil system.
-        </p>
-        <p className="text-muted-foreground max-w-3xl">
-          Kenrax air filters use high-grade filter media calibrated for the airflow
-          and pressure requirements of each compressor model, ensuring consistent
-          filtration efficiency throughout the service interval.
-        </p>
+        <div className="container flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Browse Air Filters ({airFilters.length})
+          </h2>
+          <div className="w-full">
+            <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
+              <Team2 products={airFilters} />
+            </Suspense>
+          </div>
+        </div>
       </section>
 
       <section className="py-8 border-t">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Browse Air Filters ({airFilters.length})
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            What an Air Filter Does
           </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            The air filter is the first line of defence in a screw compressor. It
+            captures airborne contaminants before they enter the compression chamber,
+            preventing premature wear on rotors, bearings, and oil seals. A clogged or
+            undersized air filter reduces airflow, increases energy consumption, and
+            risks contaminating the oil system.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            Kenrax air filters use high-grade filter media calibrated for the airflow
+            and pressure requirements of each compressor model, ensuring consistent
+            filtration efficiency throughout the service interval.
+          </p>
         </div>
-        <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
-          <Team2 products={airFilters} />
-        </Suspense>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            When to Replace Your Compressor Air Filter
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            The correct replacement interval depends on where your compressor runs.
+            In dusty manufacturing floors and construction sites, air filters load up
+            faster and may need attention every 500–1000 operating hours. In clean,
+            climate-controlled facilities, a filter can often last 2000–4000 hours.
+            Always follow your compressor manual, but start inspecting earlier if the
+            environment is dusty — it is far cheaper to replace a filter on schedule
+            than to repair a compressor that has ingested abrasive dust.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            A dark, visibly dirty, or mechanically damaged filter element should be
+            replaced immediately regardless of hours. When in doubt, compare the new
+            element against a freshly opened one — if you can see a clear difference,
+            change it.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Signs Your Air Filter Needs Replacing
+          </h2>
+          <ul className="text-muted-foreground max-w-3xl space-y-3 text-left">
+            <li>
+              <b>Higher discharge temperature</b> — a clogged intake filter starves
+              the compressor of air, causing it to work harder and run hotter.
+            </li>
+            <li>
+              <b>Reduced output pressure or flow</b> — downstream equipment runs
+              weak or slow because the compressor cannot pull in enough air.
+            </li>
+            <li>
+              <b>Increased energy consumption</b> — the compressor draws more power
+              to compensate for restricted intake airflow.
+            </li>
+            <li>
+              <b>Visible contamination</b> — a filter element that looks dark,
+              oily, or clogged with debris has reached the end of its service life.
+            </li>
+          </ul>
+        </div>
       </section>
 
       {relatedBlogs.length > 0 && (
         <section className="py-8 border-t">
-          <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Related Articles
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedBlogs.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blogs/${post.slug}`}
-                className="group rounded-lg border bg-card p-4 hover:shadow-md transition-shadow"
-              >
-                {post.coverImage && (
-                  <Image
-                    src={post.coverImage}
-                    alt={post.title}
-                    width={400}
-                    height={200}
-                    className="rounded-md mb-3 aspect-video object-cover w-full"
-                  />
-                )}
-                <h3 className="font-semibold group-hover:underline">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                  Read more on the Kenrax blog.
-                </p>
-              </Link>
-            ))}
-          </div>
+          <Blog8
+            heading="Related Articles"
+            description="Guides and insights on air compressor filtration and maintenance from the Kenrax blog."
+            posts={relatedBlogs}
+          />
         </section>
       )}
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-6">
-          Frequently Asked Questions
-        </h2>
-        <Accordion type="single" collapsible className="w-full max-w-3xl">
-          {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="container flex flex-col items-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible className="w-full max-w-3xl">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger className="text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </section>
     </>
   );

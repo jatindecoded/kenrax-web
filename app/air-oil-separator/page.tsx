@@ -1,11 +1,10 @@
 import { Team2 } from "@/components/team2";
 import products from "@/lib/products";
 import blogs from "@/data/blogs/blogs.json";
+import { Blog8 } from "@/components/blog8";
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Link from "next/link";
-import Image from "next-export-optimize-images/image";
 import { Suspense } from "react";
 
 const separators = products.filter((p) => p.type === "Air Oil Separator");
@@ -70,12 +69,31 @@ const categorySchema = {
 };
 
 export default function AirOilSeparatorPage() {
-  const relatedBlogs = blogs.filter(
-    (b) =>
-      b.title.toLowerCase().includes("separator") ||
-      b.title.toLowerCase().includes("oil carryover") ||
-      b.title.toLowerCase().includes("oil")
-  );
+  const relatedBlogs = blogs
+    .filter(
+      (b) =>
+        b.title.toLowerCase().includes("separator") ||
+        b.title.toLowerCase().includes("oil carryover") ||
+        b.title.toLowerCase().includes("oil")
+    )
+    .map((b) => ({
+      id: b.id,
+      title: b.title,
+      summary:
+        (b.content || [])
+          .map((block: any) =>
+            (block["paragraph"]?.rich_text ?? [])
+              .map((rt: any) => rt.plain_text)
+              .join("")
+          )
+          .join("")
+          .slice(0, 100),
+      label: "Blog",
+      author: "Kenrax Industries",
+      published: b.createdAt,
+      url: `/blogs/${b.slug}`,
+      image: b.coverImage,
+    }));
 
   return (
     <>
@@ -89,11 +107,11 @@ export default function AirOilSeparatorPage() {
       />
 
       <section className="py-10">
-        <div className="max-w-4xl">
+        <div className="container flex flex-col items-center text-center">
           <Badge variant="secondary" className="mb-4">
             Product Category
           </Badge>
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-pretty lg:text-5xl">
             Air-Oil Separators for Screw Compressors
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
@@ -105,83 +123,113 @@ export default function AirOilSeparatorPage() {
       </section>
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">
-          What an Air-Oil Separator Does
-        </h2>
-        <p className="text-muted-foreground max-w-3xl mb-4">
-          In an oil-injected screw compressor, oil is mixed with air during
-          compression. The air-oil separator removes this oil from the compressed
-          air stream using coalescing media, returning clean oil to the system and
-          delivering dry, low-oil air to downstream applications.
-        </p>
-        <p className="text-muted-foreground max-w-3xl">
-          A failing separator increases oil consumption, raises operating costs, and
-          can contaminate pneumatic tools, instrumentation, and finished products.
-          Kenrax separators are built to match OEM separation efficiency and
-          pressure drop specifications.
-        </p>
+        <div className="container flex flex-col items-center text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Browse Air-Oil Separators ({separators.length})
+          </h2>
+          <div className="w-full">
+            <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
+              <Team2 products={separators} />
+            </Suspense>
+          </div>
+        </div>
       </section>
 
       <section className="py-8 border-t">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Browse Air-Oil Separators ({separators.length})
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            What an Air-Oil Separator Does
           </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            In an oil-injected screw compressor, oil is mixed with air during
+            compression. The air-oil separator removes this oil from the compressed
+            air stream using coalescing media, returning clean oil to the system and
+            delivering dry, low-oil air to downstream applications.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            A failing separator increases oil consumption, raises operating costs, and
+            can contaminate pneumatic tools, instrumentation, and finished products.
+            Kenrax separators are built to match OEM separation efficiency and
+            pressure drop specifications.
+          </p>
         </div>
-        <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
-          <Team2 products={separators} />
-        </Suspense>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            When to Replace Your Air-Oil Separator
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mb-4">
+            Separator elements typically run 4000–8000 operating hours depending on
+            duty cycle, air quality, and oil condition. Because a separator cannot be
+            cleaned and regenerated, the correct move is scheduled replacement — keep
+            a spare on hand so a rising differential pressure or visible oil carryover
+            never forces an unplanned shutdown.
+          </p>
+          <p className="text-muted-foreground max-w-3xl">
+            The cost of a separator is a fraction of what oil carryover costs in lost
+            lubricant, contaminated downstream equipment, and rejected product.
+            Replace it on the OEM schedule and check the differential pressure
+            regularly to catch early degradation.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
+            Signs Your Separator Needs Replacing
+          </h2>
+          <ul className="text-muted-foreground max-w-3xl space-y-3 text-left">
+            <li>
+              <b>Oil carryover at the discharge</b> — oil mist in the air line or
+              downstream of the aftercooler means the separator media is saturated.
+            </li>
+            <li>
+              <b>Rising oil consumption</b> — frequent top-ups with no external oil
+              leak point to oil being pushed out with the compressed air.
+            </li>
+            <li>
+              <b>Higher pressure drop</b> — a loaded separator restricts airflow,
+              forcing the compressor to work harder and consume more energy.
+            </li>
+            <li>
+              <b>Oil in condensate drains</b> — visible oil in the condensate from
+              receiver or aftercooler drains confirms separator media failure.
+            </li>
+          </ul>
+        </div>
       </section>
 
       {relatedBlogs.length > 0 && (
         <section className="py-8 border-t">
-          <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Related Articles
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedBlogs.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blogs/${post.slug}`}
-                className="group rounded-lg border bg-card p-4 hover:shadow-md transition-shadow"
-              >
-                {post.coverImage && (
-                  <Image
-                    src={post.coverImage}
-                    alt={post.title}
-                    width={400}
-                    height={200}
-                    className="rounded-md mb-3 aspect-video object-cover w-full"
-                  />
-                )}
-                <h3 className="font-semibold group-hover:underline">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                  Read more on the Kenrax blog.
-                </p>
-              </Link>
-            ))}
-          </div>
+          <Blog8
+            heading="Related Articles"
+            description="Guides and insights on air-oil separation, oil carryover, and compressor maintenance from the Kenrax blog."
+            posts={relatedBlogs}
+          />
         </section>
       )}
 
       <section className="py-8 border-t">
-        <h2 className="text-2xl font-bold tracking-tight mb-6">
-          Frequently Asked Questions
-        </h2>
-        <Accordion type="single" collapsible className="w-full max-w-3xl">
-          {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="container flex flex-col items-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible className="w-full max-w-3xl">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger className="text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </section>
     </>
   );

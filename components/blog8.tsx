@@ -25,8 +25,28 @@ interface Blog8Props {
 const Blog8 = ({
   heading = "Blog Posts",
   description = "Explore the newest insights, practical guides, and expert tips on air‑compressor filtration, maintenance, and OEM‑grade replacement parts—everything you need to keep your compressors running at peak efficiency.",
+  posts,
 }: Blog8Props) => {
-  const posts = blogs;
+const allPosts = (posts ?? blogs).map((p: any): Post => ({
+    id: p.id,
+    title: p.title,
+    summary:
+      p.summary ||
+      (p.content || [])
+        .map((block: any) =>
+          (block["paragraph"]?.rich_text ?? [])
+            .map((rt: any) => rt.plain_text)
+            .join("")
+        )
+        .join("")
+        .slice(0, 100),
+    label: p.label || "",
+    author: p.author || "",
+    published: p.createdAt || "",
+    url: p.url || `/blogs/${p.slug}`,
+    image: p.coverImage || p.image || "",
+    tags: p.tags,
+  }));
   return (
     <section className="py-8">
       <div className="container flex flex-col items-center gap-16">
@@ -40,7 +60,7 @@ const Blog8 = ({
         </div>
 
         <div className="grid gap-y-10 sm:grid-cols-12 sm:gap-y-12 md:gap-y-16 lg:gap-y-20">
-          {posts.map((post) => (
+          {allPosts.map((post) => (
             <Card
               key={post.id}
               className="order-last border-0 bg-transparent shadow-none sm:order-first sm:col-span-12 lg:col-span-10 lg:col-start-2"
@@ -49,7 +69,7 @@ const Blog8 = ({
                 <div className="sm:col-span-5">
                   <h3 className="text-xl font-bold tracking-tight md:text-2xl lg:text-3xl">
                     <a
-                      href={"/blogs/" + post.slug}
+                      href={post.url}
                       target="_blank"
                       className="hover:underline tracking-tight"
                     >
@@ -57,15 +77,11 @@ const Blog8 = ({
                     </a>
                   </h3>
                   <p className="mt-4 text-muted-foreground md:mt-5">
-                    {post.content.map((block) =>
-                      (block["paragraph"]?.rich_text ?? [])
-                        .map((rt: any) => rt.plain_text)
-                        .join('')
-                    ).join('').slice(0, 100)}...
+                    {post.summary}...
                   </p>
                   <div className="mt-6 flex items-center space-x-4 text-sm md:mt-8">
                     <span className="text-muted-foreground">
-                      Published on: {new Date(post.createdAt).toLocaleDateString('en-GB', {
+                      Published on: {new Date(post.published).toLocaleDateString('en-GB', {
                         day: '2-digit',
                         month: 'short',
                         year: 'numeric',
@@ -74,7 +90,7 @@ const Blog8 = ({
                   </div>
                   <div className="mt-6 flex items-center space-x-2 md:mt-8">
                     <a
-                      href={"/blogs/" + post.slug}
+                      href={post.url}
                       target="_blank"
                       className="inline-flex items-center font-semibold hover:underline md:text-base"
                     >
@@ -84,12 +100,13 @@ const Blog8 = ({
                   </div>
                 </div>
                 <div className="order-first sm:order-last sm:col-span-5">
-                  <a href={"/blogs/" + post.slug} target="_blank" className="block">
+                  <a
+                      href={post.url} target="_blank" className="block">
                     <div className="aspect-[16/9] overflow-clip rounded-lg border border-border">
                       <Image
                         width={1600}
                         height={900}
-                        src={post.coverImage}
+                        src={post.image}
                         alt={post.title}
                         className="h-full w-full object-cover transition-opacity duration-200 fade-in hover:opacity-70"
                       />

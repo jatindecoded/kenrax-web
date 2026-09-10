@@ -2,13 +2,11 @@
   "name": "business-test-site",
   "version": "0.1.0",
   "private": true,
-  "pnpm": {
-    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
-  },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run saveNotion && next build && next-export-optimize-images",
+    "build:saveNotion": "npm run saveNotion && next build && next-export-optimize-images",
     "build:static": "next build && next-export-optimize-images && pnpm postbuild",
+    "build": "pnpm build:static",
     "postbuild": "next-sitemap",
     "saveNotion": "npx ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/saveNotionData.ts",
     "start": "next start",
