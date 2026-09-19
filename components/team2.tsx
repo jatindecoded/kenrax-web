@@ -22,6 +22,7 @@ const Team2 = ({ products }: ProductPageInterface) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState(products);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [activeOems, setActiveOems] = useState<string[]>([]);
 
   const handleToggle = (filter: string) => {
     setActiveFilters(prev =>
@@ -31,18 +32,28 @@ const Team2 = ({ products }: ProductPageInterface) => {
     );
   };
 
+  const handleOemToggle = (oem: string) => {
+    setActiveOems(prev =>
+      prev.includes(oem)
+        ? prev.filter(o => o !== oem)
+        : [...prev, oem]
+    );
+  };
+
   useEffect(() => {
     setResults(products.filter(product => {
       const typeMatch = activeFilters.length === 0 ? true : activeFilters.includes(product.type.toLowerCase())
+      const oemMatch = activeOems.length === 0 ? true : (product.OEMs ?? []).some(o => activeOems.includes(o.toLowerCase()))
       const queryMatch = name ? product.partNumber.toLowerCase().includes(name.toLowerCase()) : true
 
-      return typeMatch && queryMatch;
+      return typeMatch && oemMatch && queryMatch;
     }
     ))
 
-  }, [activeFilters])
+  }, [activeFilters, activeOems])
 
   const allTypes = new Set(products.map(p => p.type));
+  const allOems = new Set(products.flatMap(p => p.OEMs ?? []));
 
   // const [results, setResults] = useState(products);
 
@@ -71,6 +82,29 @@ const Team2 = ({ products }: ProductPageInterface) => {
                 >
                   {/* <Circle fontSize={8} /> */}
                   {p.toUpperCase()}
+                </Toggle>
+
+              )
+            })
+          }
+
+
+        </div>
+
+        <p className="semibold text-muted-foreground text-xs mb-1">Filter by Compatible OEM:</p>
+        <div className="flex gap-2 flex-wrap items-center mb-4">
+          {
+            Array.from(allOems)?.map((oem, idx) => {
+              return (
+                <Toggle
+                  key={idx}
+                  variant={'outline'}
+                  className="font-bold uppercase text-xs data-[state=on]:bg-primary data-[state=on]:text-background cursor-pointer"
+                  aria-label="Toggle OEM"
+                  pressed={activeOems.includes(oem.toLowerCase())}
+                  onPressedChange={() => handleOemToggle(oem.toLowerCase())}
+                >
+                  {oem.toUpperCase()}
                 </Toggle>
 
               )

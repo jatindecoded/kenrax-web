@@ -3,6 +3,7 @@ import { Product } from "@/scripts/fetchNotionProducts";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import properties from "../data/properties.json";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ProductCard({ product, descMaxLength = 80 }: { product: Product, descMaxLength?: number }) {
 
@@ -52,8 +53,8 @@ export default function ProductCard({ product, descMaxLength = 80 }: { product: 
 				</p>
 			</div>
 			<div className="mt-2 flex flex-col justify-end items-stretch w-full gap-2 flex-1 items-end">
-				<Button aria-label={'Buy Now'} key={product.id + "1"}>Buy Now</Button>
-				<Button aria-label={'Get Price'} key={product.id + "2"} variant={"outline"}>Get Price</Button>
+				<Button aria-label={'Buy Now'} key={product.id + "1"} onClick={() => trackEvent("select_item", { item_part_number: product.partNumber, item_type: product.type })}>Buy Now</Button>
+				<Button aria-label={'Get Price'} key={product.id + "2"} variant={"outline"} onClick={() => trackEvent("select_item", { item_part_number: product.partNumber, item_type: product.type, intent: "price" })}>Get Price</Button>
 			</div>
 		</a>
 	)

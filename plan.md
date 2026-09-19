@@ -1,46 +1,92 @@
-# Kenrax SEO Fix Plan
+# Kenrax Lead‑Generation & SEO Improvement Plan
 
-## Objective
-Ship SEO/fixes for **kenrax.in** (Next.js 15 static export) and raise a PR, while iterating on SEO category pages: centered layout, more relevant content, and category links in the top nav.
+## Overview
+This document records the step‑by‑step actions required to add new blog content, improve lead conversion UX, and apply the 5‑phase SEO plan that has already been merged. The goal is to create a new branch, implement all phased improvements, and open a final Pull Request.
 
-## Key Business Position (user correction)
-Kenrax manufactures **air filters, oil filters, air-oil separators, hydraulic filters** for screw compressors — NOT general "compressor spare parts". All meta/positioning must be filter-specific.
+---
 
-## Environment Constraints
-- Git write ops disabled in sandbox → commit/push/PR commands handed to user.
-- Full `npm run build` fails at `saveNotion` step (missing `NOTION_API_KEY`) → use `npx next build` to verify.
-- **Do not change product title format** (`${partNumber} - ${type} for ${brand} | Kenrax`).
-- `Team2` uses `useSearchParams()` → wrap in `<Suspense>` on category pages.
-- Build scripts (pnpm portability): bare sibling-script references fail under pnpm. Portable fix = inline commands: `"build:static": "next build && next-export-optimize-images && next-sitemap"`; main `build` has same latent bug via `saveNotion`/`postbuild` bare names.
-- Tailwind v4 `container` is left-aligned → centering requires `mx-auto` instead of `container`.
-- Blog JSON has no `summary` field → `Blog8` normalizes blog JSON and `Post`-shaped props (extracts `summary` from `content` when missing, derives `url` from `slug`, uses `image`/`published`).
+## 1. Branch Setup
+1. Create a new feature branch: `git checkout -b seo/lead-gen-improvements`.
+2. Pull the latest `main` into the branch (`git pull origin main`).
 
-## Phase 1 — Global Fixes (DONE)
-- Blog metadata slug bug fix
-- Alt tags on images
-- Removed fake `offers.price` (product pages)
-- Canonicals (homepage, blogs, company-profile, category pages)
-- Rewritten filter-specific meta descriptions + titles
-- Homepage Organization JSON-LD
-- Deleted dead `[slug]` category dirs
-- `logos3.tsx` carousel re-applied (user inadvertently reverted; re-verified, build passes)
+---
 
-## Phase 2 — Category Pages (`/air-filter`, `/oil-filter`, `/air-oil-separator`) (DONE, build TBD)
-- `components/blog8.tsx`: `posts` prop used; renders `url`, `summary`, `image`, `published`; normalizes both shapes.
-- Rewrote all three pages: centered hero, product browse, education sections, Related Articles (`Blog8`), FAQ accordion, FAQPage + CollectionPage JSON-LD, canonical.
-- Centering bug fixed: `container` → `mx-auto` in 9 places.
-- **Section order finalized (per user):** Hero → Browse Products → "What an X Does" → "When to Replace Your X" → "Signs Your X Needs Replacing" → Related Articles → FAQ.
-- Final nav edit **not yet build-verified**.
+## 2. Phase 0 – Repository Foundations (Already Completed)
+| Item | Status | Notes |
+|------|--------|-------|
+| SEO 5‑Phase Fixes | ✅ | Merged into `main`. |
+| Performance Audit | ✅ | Results stored under `Downloads/Performance on Search Sept 9 2026`. |
+| Analytics Stack | ✅ | GA4 and GTM configured. |
+| Lead‑Tracking Events | ✅ | `view_product`, `download_brochure`, `form_submitted`, `view_article`. |
 
-## Phase 3 — Top Nav (DONE, build TBD)
-- `components/navbar1.tsx`: "Products" remained a plain link to `/products`; added "Product Categories" dropdown with Air Filters `/air-filter`, Oil Filters `/oil-filter`, Air-Oil Separators `/air-oil-separator`.
+---
 
-## Next Move
-1. Verify: `npx next build` (confirms navbar1 + section-order changes compile).
-2. Give user git/PR command block (branch `seo/phase-0-1-fixes`, add/commit/push, `gh pr create`).
+## 3. Phase 1 – Content & Asset Creation (New Blogs)
+1. **Create blog pages** – write entries directly into `data/blogs/blogs.json` (no Notion dependency).
+2. **Entry shape** – each blog: `id`, `title`, `slug`, `content` (blocks: `heading_2`, `paragraph`, `bulleted_list_item`, `divider`), `coverImage`, `createdAt`, `updatedAt`.
+3. **SEO metadata** – `/blogs/[slug]` already injects `BlogPosting` JSON‑LD + canonical from the entry.
+4. **Tagging & Categories** – related articles on category pages match on title keywords; keep titles keyword‑rich.
+5. **Sitemap** – `next-sitemap` picks up `/blogs/[slug]` automatically via `generateStaticParams`.
 
-## Relevant Files
-- `app/air-filter/page.tsx`, `app/oil-filter/page.tsx`, `app/air-oil-separator/page.tsx`
-- `components/blog8.tsx`, `components/navbar1.tsx`, `components/team2.tsx`, `components/logos3.tsx`
-- `package.json`, `lib/seo.ts`, `lib/products.ts`
-- `/Users/jatin/Downloads/Performance on Search Sept 9 2026/` — GSC CSVs for analysis
+---
+
+## 4. Phase 2 – Lead‑Generation UX Enhancements
+| Enhancement | Target File | Implementation Notes |
+|--------------|-------------|-----------------------|
+| Downloadable Asset Library | `components/LeadAsset.tsx` | SVG/PNG download trigger. |
+| Dynamic Product Filters | `components/Team2.tsx` | Type + compatible‑OEM filter toggles (done). |
+| Lead‑Form Banner | `components/LeadBanner.tsx` | Global banner above footer → Dialog form → WhatsApp + `generate_lead` event (done). |
+| Trust Badges | `components/TrustBadges.tsx` | ISO/OEM/Made‑in‑India badges under product list on category pages (done). |
+| Progressive Disclosure | `components/ProductDetail.tsx` | `<details>` for “Key Benefits”. |
+| Analytics | `lib/analytics.ts`, `app/layout.tsx` | GA4 gtag (env `NEXT_PUBLIC_GA_MEASUREMENT_ID`), `select_item`/`generate_lead` events (done). |
+
+---
+
+## 5. Phase 3 – Analytics & Conversion Tracking
+1. Add GA4 e‑commerce events (`viewItemList`, `selectItem`, `addToCart`).
+2. Standardize UTM template: `utm_source=newsletter&utm_medium=email&utm_campaign=lead_gen_2026`.
+3. Set up A/B tests for banner copy (e.g., “Get a Quote” vs “Talk to Sales”).
+4. Store UTM in localStorage; submit with form payload.
+
+---
+
+## 6. Phase 4 – Performance & Speed
+| Area | Action |
+|------|--------|
+| Critical CSS | Inline hero CSS in `next/head`. |
+| Image Optimisation | `next/image`, lazy load non‑hero. |
+| Script Defer | `next/dynamic` for heavy libs. |
+| Cache Headers | Cloudflare Workers KV, `Cache-Control`. |
+
+---
+
+## 7. Phase 5 – Release & Monitoring
+1. Build static site: `npx next build && npx next export`.
+2. Deploy to Cloudflare (`wrangler publish`).
+3. Push branch changes (`git push -u origin seo/lead-gen-improvements`).
+4. Create PR: `gh pr create --fill` targeting `main`.
+5. Add reviewers: maintainers and team leads.
+6. Monitor GA4 funnel; iterate on A/B tests.
+
+---
+
+## 8. Success Metrics
+| KPI | Target |
+|-----|--------|
+| Site Speed | LCP < 2 s |
+| New Leads | ≥ 15 per month |
+| Blog Traffic | ≥ 500 views/article |
+| Conversion Rate | 3% from product page → form |
+
+---
+
+## 9. Next Actions
+- Draft first 3 blog posts. |
+- Deploy local dev server to double‑check UI changes. |
+- Full test suite (`npm test` / `vitest`). |
+- Stage build on a preview environment. |
+
+---
+
+**Prepared by**: OpenCode
+**Date**: September 10, 2026
