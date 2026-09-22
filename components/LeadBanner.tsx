@@ -30,14 +30,14 @@ export function LeadBanner() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button>Request a Quote</Button>
+              <Button>GET PRICE LIST</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Request a Quote</DialogTitle>
+                <DialogTitle>Get Price List</DialogTitle>
                 <DialogDescription>
-                  Tell us what you need — we reply via WhatsApp or email within one
-                  business day.
+                  Tell us which filters you need — we send the price list via
+                  WhatsApp within one business day.
                 </DialogDescription>
               </DialogHeader>
               <LeadForm onClose={() => setOpen(false)} />
@@ -65,8 +65,9 @@ function LeadForm({ onClose }: { onClose: () => void }) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const message = `Hi Kenrax, I need a quote.%0A%0AName: ${name}%0APhone: ${phone}%0APart Number / Model: ${partNumber}`;
-    trackEvent("generate_lead", { name, phone, part_number: partNumber });
+    const utm = getUtm();
+    const message = `Hi Kenrax, please send me the price list.%0A%0AName: ${name}%0APhone: ${phone}%0AProduct / Part Numbers: ${partNumber}${utm.messageSuffix}`;
+    trackEvent("generate_lead", { name, phone, part_number: partNumber, ...utm.params });
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
     onClose();
   };
@@ -107,4 +108,28 @@ function LeadForm({ onClose }: { onClose: () => void }) {
       </Button>
     </form>
   );
+}
+
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+function getUtm(): { params: Record<string, string>; messageSuffix: string } {
+  let utm: Record<string, string> = {};
+  try {
+    const stored = localStorage.getItem("kenrax_utm");
+    if (stored) utm = JSON.parse(stored);
+    const params = new URLSearchParams(window.location.search);
+    const fresh = UTM_KEYS.filter((k) => params.get(k));
+    if (fresh.length > 0) {
+      utm = Object.fromEntries(UTM_KEYS.map((k) => [k, params.get(k) || ""]).filter(([, v]) => v));
+      localStorage.setItem("kenrax_utm", JSON.stringify(utm));
+    }
+  } catch {
+    // localStorage may be unavailable; fall back to URL params only
+    const params = new URLSearchParams(window.location.search);
+    utm = Object.fromEntries(UTM_KEYS.map((k) => [k, params.get(k) || ""]).filter(([, v]) => v));
+  }
+  const suffix = Object.entries(utm)
+    .map(([k, v]) => `%0A${k}: ${v}`)
+    .join("");
+  return { params: utm, messageSuffix: suffix ? `%0A%0A---%0ASource${suffix}` : "" };
 }

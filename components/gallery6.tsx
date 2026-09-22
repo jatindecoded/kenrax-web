@@ -2,7 +2,8 @@
 
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import products from "@/lib/products";
+import allProducts from "@/lib/products";
+import { Product } from "@/scripts/fetchNotionProducts";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,23 +14,18 @@ import {
 } from "@/components/ui/carousel";
 import ProductCard from "./productCard";
 
-interface GalleryItem {
-  id: string;
-  title: string;
-  summary: string;
-  url: string;
-  image: string;
-}
-
 interface Gallery6Props {
   heading?: string;
   demoUrl?: string;
+  items?: Product[];
 }
 
 const Gallery6 = ({
   heading = "Product Gallery",
   demoUrl = "/products",
+  items,
 }: Gallery6Props) => {
+  const gallery = items ?? allProducts;
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -106,7 +102,7 @@ const Gallery6 = ({
           className="relative left-[-1rem]"
         >
           <CarouselContent className="-mr-4 ml-8 2xl:mr-[max(0rem,calc(50vw-700px-1rem))] 2xl:ml-[max(8rem,calc(50vw-700px+1rem))]">
-            {products.slice(0, 10).map((item) => (
+            {gallery.slice(0, 10).map((item) => (
               <CarouselItem key={item.id} className="pl-4 max-w-[252px]">
                 <ProductCard product={item} descMaxLength={0} />
               </CarouselItem>

@@ -33,12 +33,12 @@ This document records the step‑by‑step actions required to add new blog cont
 ## 4. Phase 2 – Lead‑Generation UX Enhancements
 | Enhancement | Target File | Implementation Notes |
 |--------------|-------------|-----------------------|
-| Downloadable Asset Library | `components/LeadAsset.tsx` | SVG/PNG download trigger. |
+| Downloadable Asset Library | `components/LeadAsset.tsx` | Catalog PDF download CTA in lead banner (done). |
 | Dynamic Product Filters | `components/Team2.tsx` | Type + compatible‑OEM filter toggles (done). |
-| Lead‑Form Banner | `components/LeadBanner.tsx` | Global banner above footer → Dialog form → WhatsApp + `generate_lead` event (done). |
+| Lead‑Form Banner | `components/LeadBanner.tsx` | Global banner above footer → Dialog form → WhatsApp + `generate_lead` event, UTM attribution (done). |
 | Trust Badges | `components/TrustBadges.tsx` | ISO/OEM/Made‑in‑India badges under product list on category pages (done). |
-| Progressive Disclosure | `components/ProductDetail.tsx` | `<details>` for “Key Benefits”. |
-| Analytics | `lib/analytics.ts`, `app/layout.tsx` | GA4 gtag (env `NEXT_PUBLIC_GA_MEASUREMENT_ID`), `select_item`/`generate_lead` events (done). |
+| Progressive Disclosure | `[productType]/[slug]/page.tsx` | `<details>` for “Key Benefits” + compatible brands on product pages (done). |
+| Analytics | `lib/analytics.ts`, `app/layout.tsx` | GA4 gtag (env `NEXT_PUBLIC_GA_MEASUREMENT_ID`), `select_item`/`generate_lead`/`download_catalog` events (done). |
 
 ---
 
