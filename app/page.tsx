@@ -5,8 +5,13 @@ import { Hero151 } from "@/components/hero151";
 import { Logos3 } from "@/components/logos3";
 import { Stats8 } from "@/components/stats8";
 import { Testimonial10 } from "@/components/testimonial10";
+import products from "@/lib/products";
 import { Metadata } from "next";
 import properties from "@/data/properties.json"
+
+const airFilters = products.filter((p) => p.type === "Air Filter");
+const oilFilters = products.filter((p) => p.type === "Oil Filter");
+const separators = products.filter((p) => p.type === "Air Oil Separator");
 
 export default function Home() {
   const organizationJsonLd = {
@@ -45,7 +50,21 @@ export default function Home() {
       <Hero151 />
       <Stats8 />
       <Logos3 />
-      <Gallery6 />
+      <Gallery6
+        heading="Air Filters for Screw Compressors"
+        demoUrl="/air-filter"
+        items={airFilters}
+      />
+      <Gallery6
+        heading="Oil Filters for Screw Compressors"
+        demoUrl="/oil-filter"
+        items={oilFilters}
+      />
+      <Gallery6
+        heading="Air-Oil Separators for Screw Compressors"
+        demoUrl="/air-oil-separator"
+        items={separators}
+      />
       <Testimonial10 />
       <Faq5 />
       <Contact7 />

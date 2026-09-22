@@ -1,22 +1,11 @@
 "use client";
 
-import { FormEvent, useState } from "react";
 import { Button } from "./ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
 import { trackEvent } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "919810329240";
 
 export function LeadBanner() {
-  const [open, setOpen] = useState(false);
-
   return (
     <section className="py-8 border-t">
       <div className="container mx-auto flex flex-col items-center gap-4 text-center">
@@ -24,25 +13,25 @@ export function LeadBanner() {
           Need the Right Replacement Filter?
         </h2>
         <p className="max-w-2xl text-muted-foreground">
-          Send us your OEM part number or compressor model and get a quote
-          within one business day.
+          Send us your OEM part number or compressor model on WhatsApp and get
+          the price list within one business day.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-              <Button>Request a Quote</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Request a Quote</DialogTitle>
-                <DialogDescription>
-                  Tell us what you need — we reply via WhatsApp or email within one
-                  business day.
-                </DialogDescription>
-              </DialogHeader>
-              <LeadForm onClose={() => setOpen(false)} />
-            </DialogContent>
-          </Dialog>
+          <Button
+            onClick={() => {
+              const utm = getUtm();
+              trackEvent("generate_lead", utm.params);
+              const message =
+                "Hi Kenrax, please send me the current price list and product catalog." +
+                utm.messageSuffix;
+              window.open(
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+                "_blank"
+              );
+            }}
+          >
+            Get Price List
+          </Button>
           <Button
             asChild
             variant="outline"
@@ -58,53 +47,25 @@ export function LeadBanner() {
   );
 }
 
-function LeadForm({ onClose }: { onClose: () => void }) {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [partNumber, setPartNumber] = useState("");
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const message = `Hi Kenrax, I need a quote.%0A%0AName: ${name}%0APhone: ${phone}%0APart Number / Model: ${partNumber}`;
-    trackEvent("generate_lead", { name, phone, part_number: partNumber });
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-    onClose();
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
-      <label className="flex flex-col gap-1 text-sm">
-        Name
-        <input
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="rounded-md border px-3 py-2"
-        />
-      </label>
-      <label className="flex flex-col gap-1 text-sm">
-        Phone / WhatsApp number
-        <input
-          required
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="rounded-md border px-3 py-2"
-          placeholder="+91 ..."
-        />
-      </label>
-      <label className="flex flex-col gap-1 text-sm">
-        OEM part number or compressor model
-        <input
-          required
-          value={partNumber}
-          onChange={(e) => setPartNumber(e.target.value)}
-          className="rounded-md border px-3 py-2"
-        />
-      </label>
-      <Button type="submit" className="w-full">
-        Send via WhatsApp
-      </Button>
-    </form>
-  );
+function getUtm(): { params: Record<string, string>; messageSuffix: string } {
+  let utm: Record<string, string> = {};
+  try {
+    const stored = localStorage.getItem("kenrax_utm");
+    if (stored) utm = JSON.parse(stored);
+    const params = new URLSearchParams(window.location.search);
+    const fresh = UTM_KEYS.filter((k) => params.get(k));
+    if (fresh.length > 0) {
+      utm = Object.fromEntries(UTM_KEYS.map((k) => [k, params.get(k) || ""]).filter(([, v]) => v));
+      localStorage.setItem("kenrax_utm", JSON.stringify(utm));
+    }
+  } catch {
+    const params = new URLSearchParams(window.location.search);
+    utm = Object.fromEntries(UTM_KEYS.map((k) => [k, params.get(k) || ""]).filter(([, v]) => v));
+  }
+  const suffix = Object.entries(utm)
+    .map(([k, v]) => `%0A${k}: ${v}`)
+    .join("");
+  return { params: utm, messageSuffix: suffix ? `%0A%0A---%0ASource${suffix}` : "" };
 }

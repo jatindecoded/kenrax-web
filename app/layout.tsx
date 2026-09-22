@@ -8,7 +8,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 const InterFont = Geist({ subsets: ["latin"] })
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-1G2MPP1TS2";
 
 export default function RootLayout({
   children,

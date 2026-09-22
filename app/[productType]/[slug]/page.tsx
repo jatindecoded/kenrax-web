@@ -79,6 +79,34 @@ export default async function Page({ params }: ProductPageProps) {
       <Hero3 product={product} />
 
       <Careers4 product={product} />
+
+      <section className="py-8">
+        <div className="mx-auto grid max-w-4xl gap-4 px-2">
+          <details className="group rounded-lg border p-4">
+            <summary className="cursor-pointer font-semibold tracking-tight">
+              Key Benefits
+            </summary>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+              <li>Direct OEM-grade replacement for {product.OEMs.join(", ")}.</li>
+              <li>
+                Filtration media and construction matched to the application:{" "}
+                {application}.
+              </li>
+              <li>Engineered fit — drop-in installation without modification.</li>
+            </ul>
+          </details>
+          <details className="group rounded-lg border p-4">
+            <summary className="cursor-pointer font-semibold tracking-tight">
+              Compatible Compressor Brands
+            </summary>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+              {product.compatibleWith.slice(0, 20).map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </details>
+        </div>
+      </section>
     </div >
   );
 }
