@@ -45,7 +45,7 @@ const Hero151 = ({
   heading2 = "for Screw Compressors",
   description = "Precision-crafted filtration solutions for every compressor need. Built for performance, priced for value.",
   button = {
-    text: "GET PRICE LIST",
+    text: "Get Price List",
     url: `https://wa.me/91${properties["contact.phone.whatsapp"].value}?text=Hi%20Kenrax!%20Please%20share%20your%20current%20price%20list%20and%20catalog.`
   },
   button2 = {

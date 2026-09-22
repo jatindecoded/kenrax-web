@@ -1,6 +1,12 @@
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import properties from "@/data/properties.json";
 import products from "@/lib/products";
@@ -66,11 +72,28 @@ export default async function CityPage({
     })),
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: location.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <section className="py-10">
@@ -82,9 +105,7 @@ export default async function CityPage({
             Air Compressor Filters &amp; Separators Manufacturer in {location.name}
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            OEM-grade replacement air filters, oil filters, and air-oil separators
-            for screw compressors — supplied by Kenrax Industries to {location.name}{" "}
-            and {location.state}.
+            {location.intro}
           </p>
         </div>
       </section>
@@ -92,17 +113,9 @@ export default async function CityPage({
       <section className="py-8 border-t">
         <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Replacement Filters for {location.name}&apos;s Compressor Fleets
+            Where {location.name}&apos;s compressors actually run
           </h2>
-          <p className="text-muted-foreground max-w-3xl">{location.intro}</p>
-          <p className="text-muted-foreground max-w-3xl mt-4">
-            Our products serve{" "}
-            {location.industries.slice(0, -1).join(", ")} and{" "}
-            {location.industries.slice(-1)} facilities across {location.name}. A
-            scheduled replacement of air filters, oil filters, and separators costs
-            a fraction of an unscheduled compressor overhaul — and we make the
-            parts easy to source.
-          </p>
+          <p className="text-muted-foreground max-w-3xl">{location.clusters}</p>
         </div>
       </section>
 
@@ -132,16 +145,38 @@ export default async function CityPage({
         </div>
       </section>
 
+      {location.body.map((section) => (
+        <section key={location.slug + section.heading} className="py-8 border-t">
+          <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+            <h2 className="text-2xl font-bold tracking-tight mb-6">
+              {section.heading}
+            </h2>
+            {section.paragraphs.map((para, i) => (
+              <p key={i} className="text-muted-foreground max-w-3xl mb-4">
+                {para}
+              </p>
+            ))}
+            {section.bullets && (
+              <ul className="text-muted-foreground max-w-3xl space-y-3 text-left">
+                {section.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
+
       <section className="py-8 border-t">
         <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Direct-Fit Replacements for Every Major Compressor Brand
+            Every Major Compressor Brand Covered
           </h2>
           <p className="text-muted-foreground max-w-3xl mb-6">
-            Every filter we make is engineered to match the original part&apos;s
-            media grade, dimensions, and sealing so it drops straight in. We
-            cross-reference your OEM part number before you order — on WhatsApp —
-            so plants in {location.name} never receive the wrong element.
+            Every filter Kenrax makes for {location.name} is engineered to match
+            the original part&apos;s media grade, dimensions, and sealing so it
+            drops straight in. We cross-reference your OEM part number on WhatsApp
+            before you order.
           </p>
           <ul className="flex flex-wrap justify-center gap-2 max-w-3xl">
             {oemBrands.map((b) => (
@@ -157,48 +192,48 @@ export default async function CityPage({
       </section>
 
       <section className="py-8 border-t">
-        <div className="mx-auto flex flex-col items-center text-center max-w-3xl">
-          <h2 className="text-2xl font-bold tracking-tight mb-6">
-            Why {location.name} Plants Choose Kenrax
+        <div className="container flex flex-col items-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-6 text-center">
+            Compressor Filter FAQs for {location.name}
           </h2>
-          <ul className="text-muted-foreground max-w-2xl space-y-3 text-left">
-            <li>
-              <b>OEM-matching filtration</b> — the same media grade, airflow, and
-              fitment as the original element.
-            </li>
-            <li>
-              <b>Up to 40% savings</b> over OEM parts, with no compromise on
-              performance.
-            </li>
-            <li>
-              <b>Part-number cross-referencing</b> — send us your OEM numbers and
-              we confirm the match before dispatch.
-            </li>
-            <li>
-              <b>Fast dispatch from Delhi</b> to {location.name} via transport
-              partners, with tracking on every order.
-            </li>
-          </ul>
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <Button size="lg" asChild>
-              <a href={whatsappPriceUrl} target="_blank">
-                GET PRICE LIST
-              </a>
-            </Button>
-            <p className="text-sm text-muted-foreground">
-              <MapPin className="inline size-4 mr-1" />
-              Send us your part numbers — we confirm fitment and pricing on
-              WhatsApp.
-            </p>
-          </div>
+          <Accordion type="single" collapsible className="w-full max-w-3xl">
+            {location.faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      <section className="py-8 border-t">
+        <div className="mx-auto flex flex-col items-center text-center max-w-3xl">
+          <h2 className="text-2xl font-bold tracking-tight mb-2">
+            Get the price list for {location.name}
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Send us your OEM part numbers and we confirm fitment and pricing on
+            WhatsApp.
+          </p>
+          <Button size="lg" asChild>
+            <a href={whatsappPriceUrl} target="_blank">
+              Get Price List
+            </a>
+          </Button>
+          <p className="mt-4 text-sm text-muted-foreground">
+            <MapPin className="inline size-4 mr-1" />
+            Kenrax Industries, Delhi — dispatching to {location.name},{" "}
+            {location.state}.
+          </p>
         </div>
       </section>
 
       <section className="py-8 border-t">
         <div className="container flex flex-col items-center text-center">
-          <h2 className="text-lg font-bold tracking-tight mb-4">
-            We Also Serve
-          </h2>
+          <h2 className="text-lg font-bold tracking-tight mb-4">We Also Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {locations
               .filter((l) => l.slug !== location.slug)
@@ -231,7 +266,7 @@ export async function generateMetadata({
   const location = getLocation(city);
   if (!location) return {};
   const title = `Air Compressor Filters & Separators Manufacturer in ${location.name} | Kenrax`;
-  const description = `${location.name}: OEM-grade replacement air filters, oil filters, and air-oil separators for screw compressors from Kenrax Industries. Part-number cross-referencing and fast dispatch to ${location.name}.`;
+  const description = location.intro;
   return {
     title,
     description,
@@ -240,7 +275,6 @@ export async function generateMetadata({
       `compressor air filter ${location.name}`,
       `air oil separator ${location.name}`,
       `compressor oil filter ${location.name}`,
-      `air compressor spare parts ${location.name}`,
       `Kenrax ${location.name}`,
     ],
     openGraph: {
