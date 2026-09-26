@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next-export-optimize-images/image'
-import { ArrowDownRight, Star } from "lucide-react";
+import { ArrowDownRight, Star, StarHalf } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Product } from "@/scripts/fetchNotionProducts";
@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { buyNowHref, checkPriceHref } from "./constants";
 import properties from "@/data/properties.json";
 import { SearchCustom } from "./searchCustom";
+import { seededRating } from "@/lib/ratings";
 
 interface Hero3Props {
   product: Product
@@ -25,7 +26,7 @@ interface Hero3Props {
     };
   };
   reviews?: {
-    count: number;
+    count?: number;
     avatars: {
       src: string;
       alt: string;
@@ -48,8 +49,6 @@ const Hero3 = ({
     },
   },
   reviews = {
-    count: 200,
-    rating: 5.0,
     avatars: [
       {
         src: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
@@ -74,6 +73,15 @@ const Hero3 = ({
     ],
   },
 }: Hero3Props) => {
+  const seeded = seededRating(product?.partNumber || "");
+  const rating = reviews.rating ?? seeded.rating;
+  const count = reviews.count ?? seeded.count;
+  const stars = [...Array(5)].map((_, i) => {
+    const fill = Math.max(0, Math.min(1, rating - i));
+    if (fill >= 0.75) return <Star key={i} className="size-5 fill-yellow-400 text-yellow-400" />;
+    if (fill >= 0.25) return <StarHalf key={i} className="size-5 fill-yellow-400 text-yellow-400" />;
+    return <Star key={i} className="size-5 text-yellow-400/40" />;
+  });
   return (
     <section className="py-4">
       <SearchCustom
@@ -111,18 +119,13 @@ const Hero3 = ({
             </span> */}
             <div>
               <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, index) => (
-                  <Star
-                    key={index}
-                    className="size-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+                {stars}
                 <span className="mr-1 font-semibold">
-                  {reviews.rating?.toFixed(1)}
+                  {rating.toFixed(1)}
                 </span>
               </div>
               <p className="text-left font-medium text-muted-foreground">
-                from {reviews.count}+ reviews
+                from {count}+ reviews
               </p>
             </div>
           </div>

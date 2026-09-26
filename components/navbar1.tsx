@@ -89,8 +89,12 @@ const Navbar1 = ({
       url: "/locations",
     },
     {
+      title: "About Us",
+      url: "/about",
+    },
+    {
       title: "FAQ",
-      url: "/#faq",
+      url: "/faq",
     },
     {
       title: "Company Profile",

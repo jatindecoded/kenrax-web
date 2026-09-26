@@ -750,6 +750,64 @@ blogs.push(
   )
 );
 
+// ---------------------------------------------------------------------------
+// 12. Kenrax vs Mann HUMMEL (competitor comparison)
+// ---------------------------------------------------------------------------
+const props = JSON.parse(fs.readFileSync("data/properties.json", "utf8"));
+blogs.push(
+  entry(
+    "kenrax-vs-mann-hummel-filters",
+    "Kenrax vs Mann HUMMEL: Choosing the Right Replacement Filter for Your Compressor",
+    props["media.homepage.photo.3"].media[0],
+    "2026-09-25T10:00:00.000Z",
+    [
+      p("Mann HUMMEL is one of the best-known filter brands in the world, and it enjoys genuine recognition in Indian compressor rooms. But for a plant that needs a replacement air filter, oil filter, or air-oil separator this month — not next quarter — the practical comparison is about fitment, lead time, and cost in the Indian market. This article compares Kenrax and Mann HUMMEL honestly, so you can decide what fits your operation."),
+      div(),
+      h2("Why the Mann HUMMEL comparison comes up"),
+      p("Most compressor owners end up comparing these two brands for one of three reasons: their maintenance kit specifies a Mann part number they cannot get in time; they want a second source so they are never waiting on one supplier; or they want local custom labeling for their private label business. Those are all legitimate reasons, and they deserve a straight answer about the trade-offs."),
+      div(),
+      h2("The short version"),
+      ul([
+        "Fitment: both brands can supply a correct replacement — the difference is how the equivalence is verified. Kenrax cross-references the OEM or Mann part number and confirms fitment before you order.",
+        "Availability: Kenrax manufactures in New Delhi and typically dispatches in 24–48 hours; Mann HUMMEL parts in India depend on distributor stock and import lead times.",
+        "Pricing: Kenrax is priced for the Indian replacement market; Mann HUMMEL carries premium import pricing.",
+        "Customization: Kenrax offers custom and white-label manufacturing; Mann HUMMEL is a fixed-line catalogue.",
+        "Warranty: both stand behind their products; Kenrax covers every filter against manufacturing defects.",
+      ]),
+      div(),
+      h2("How the cross-reference works"),
+      p("The key discipline before buying any replacement — Kenrax or otherwise — is verifying equivalence on dimensions, media grade, and sealing. Here is the sequence Kenrax follows when you send a part number:"),
+      ol([
+        "You share the OEM part number or the Mann part number on WhatsApp or email.",
+        "Kenrax matches it against a catalogue of 500+ part numbers for air filters, oil filters, and air-oil separators.",
+        "Fitment is confirmed on dimensions, sealing surface, and media grade before any order is placed.",
+        "You order only once the equivalent has been checked against your compressor.",
+      ]),
+      div(),
+      h2("When Kenrax makes sense"),
+      ul([
+        "You need the filter this week, not in a month.",
+        "You want a second source so you are never held up by one supplier.",
+        "You are a dealer, distributor, or private-label buyer who wants custom numbering or white-label manufacturing.",
+        "Your compressor uses a legacy or discontinued OEM part number that the brand no longer stocks.",
+      ]),
+      div(),
+      h2("When the original brand makes sense"),
+      ul([
+        "You are under a service contract that mandates original-brand consumables.",
+        "Your maintenance policy is strictly original-parts-only.",
+        "Change-interval or warranty conditions from your OEM require factory-brand elements.",
+      ]),
+      div(),
+      h2("What to send us"),
+      p("If you would like a Kenrax quote, send your part-number list on WhatsApp. Include the compressor brand and model if you have it — Kenrax confirms fitment and pricing, usually within the same working day, and ships from Delhi within 24–48 hours."),
+      div(),
+      h2("The one-line summary"),
+      p("Both brands can supply a correct part; the real differences are lead time, price, and how far a supplier will go to verify fitment for you. Kenrax competes on the first two and is explicit about the third. " + WA_LIST),
+    ]
+  )
+);
+
 fs.writeFileSync(
   "data/blogs/blogs.json",
   JSON.stringify(blogs, null, 2) + "\n",
