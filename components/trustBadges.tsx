@@ -1,7 +1,6 @@
 import { BadgeCheck } from "lucide-react";
 
 const badges = [
-  "ISO 9001:2015 certified manufacturer",
   "OEM-grade fit & performance",
   "Made in India",
 ];

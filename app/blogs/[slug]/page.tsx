@@ -5,6 +5,17 @@ import { Metadata } from "next";
 import { toKebabCase } from "@/scripts/fetchNotionProducts";
 import properties from "@/data/properties.json"
 
+function excerptOf(blog: { content?: Array<any> }): string {
+	const first = (blog.content ?? []).find(
+		(block: any) => (block.paragraph?.rich_text ?? []).length > 0
+	);
+	if (!first) return "Kenrax blog — guides on air compressor filters and maintenance.";
+	const text = (first.paragraph?.rich_text ?? [])
+		.map((rt: any) => rt.plain_text)
+		.join("");
+	return text.length > 155 ? text.slice(0, 155).trimEnd() + "…" : text;
+}
+
 
 export default async function Blog({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
@@ -12,6 +23,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
 	if (!blog) {
 		return <Blog8 />
 	}
+
+	const excerpt = excerptOf(blog)
 
 	const blogPostingJsonLd = {
 		"@context": "https://schema.org",
@@ -36,7 +49,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
 			"@id": `https://kenrax.in/blog/${slug}`
 		},
 		"image": blog.coverImage || properties["media.homepage.photo.1"].media[0],
-		"description": "Read more about air compressor filters and spares from the Kenrax blog."
+		"description": excerpt
 	};
 
 	return (
@@ -67,15 +80,16 @@ export async function generateMetadata(
 
 	if (!blog) return {};
 
+	const excerpt = excerptOf(blog);
 	const ogImage = blog.coverImage || properties["media.homepage.photo.1"].media[0];
 	const fullSlug = blog.slug || slug;
 
 	return {
 		title: `${blog.title} | Kenrax Blog`,
-		description: "Read more about air compressor filters and spares from the Kenrax blog.",
+		description: excerpt,
 		openGraph: {
 			title: `${blog.title} | Kenrax Blog`,
-			description: "Read more about air compressor filters and spares from the Kenrax blog.",
+			description: excerpt,
 			url: `https://kenrax.in/blog/${fullSlug}`,
 			type: "article",
 			publishedTime: blog.createdAt,
@@ -85,7 +99,7 @@ export async function generateMetadata(
 		twitter: {
 			card: "summary_large_image",
 			title: blog.title,
-			description: "Read more about air compressor filters and spares from the Kenrax blog.",
+			description: excerpt,
 			images: [{ url: ogImage }]
 		},
 		alternates: {

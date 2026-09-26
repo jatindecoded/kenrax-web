@@ -7,6 +7,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import properties from "@/data/properties.json"
 import { generateProductDescription, generateProductKeywords, getApplication } from "@/lib/seo";
 import { getProductSections } from "@/lib/productContent";
+import { ViewItem } from "@/components/viewItem";
 
 export type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -78,6 +79,11 @@ export default async function Page({ params }: ProductPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Hero3 product={product} />
+      <ViewItem
+        partNumber={product.partNumber}
+        type={product.type || "Replacement Part"}
+        brand={product.OEMs[0] || "Kenrax"}
+      />
 
       <Careers4 product={product} />
 

@@ -3,6 +3,11 @@ import { ChevronLeft } from "lucide-react";
 import React from "react";
 import { Blog } from "@/scripts/fetchNotionBlogs";
 import { Separator } from "./ui/separator";
+import properties from "@/data/properties.json";
+
+const whatsappHref = `https://wa.me/91${properties["contact.phone.whatsapp"].value}?text=${encodeURIComponent(
+  "Hi Kenrax, I read your blog. Please share your current price list."
+)}`;
 
 interface Block {
 	type: "heading" | "paragraph" | "blockquote" | "list" | "image" | "table";
@@ -131,6 +136,22 @@ const BlogPost = ({ blog }: { blog: Blog }) => {
 						/>
 						)}
 						{content?.map(renderBlock)}
+						<section className="mt-10 rounded-lg border p-6 text-center">
+							<h2 className="text-xl font-bold tracking-tight">
+								Need OEM-grade replacement filters?
+							</h2>
+							<p className="mt-2 text-sm text-muted-foreground">
+								Send us your part numbers on WhatsApp and we confirm fitment
+								and price the same day.
+							</p>
+							<a
+								href={whatsappHref}
+								target="_blank"
+								className="mt-4 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
+							>
+								Get Price List on WhatsApp
+							</a>
+						</section>
 					</article>
 				</div>
 			</div>
