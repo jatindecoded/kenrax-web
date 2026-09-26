@@ -6,6 +6,7 @@ import Home from "@/app/products/page";
 import { Metadata, ResolvingMetadata } from "next";
 import properties from "@/data/properties.json"
 import { generateProductDescription, generateProductKeywords, getApplication } from "@/lib/seo";
+import { getProductSections } from "@/lib/productContent";
 
 export type ProductPageProps = {
   params: Promise<{ slug: string }>
@@ -107,6 +108,28 @@ export default async function Page({ params }: ProductPageProps) {
           </details>
         </div>
       </section>
+
+      {getProductSections(product).map((section) => (
+        <section key={section.id} className="py-8 border-t">
+          <div className="mx-auto flex max-w-4xl flex-col px-2">
+            <h2 className="text-2xl font-bold tracking-tight mb-4">
+              {section.title}
+            </h2>
+            {section.paragraphs.map((para, i) => (
+              <p key={i} className="mb-3 text-muted-foreground">
+                {para}
+              </p>
+            ))}
+            {section.bullets && (
+              <ul className="mb-3 list-disc space-y-2 pl-5 text-muted-foreground">
+                {section.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
     </div >
   );
 }

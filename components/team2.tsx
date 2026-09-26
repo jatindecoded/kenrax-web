@@ -6,6 +6,7 @@ import ProductCard from "./productCard";
 import { useSearchParams } from "next/navigation";
 import { SearchCustom } from "./searchCustom";
 import { productsPageHref } from "./constants";
+import { trackEvent } from "@/lib/analytics";
 
 
 interface ProductPageInterface {
@@ -39,6 +40,13 @@ const Team2 = ({ products }: ProductPageInterface) => {
         : [...prev, oem]
     );
   };
+
+  useEffect(() => {
+    trackEvent("view_item_list", {
+      item_list_name: "product_category",
+      items: products.slice(0, 20).map((p) => ({ item_id: p.partNumber, item_name: p.partNumber, item_brand: p.OEMs?.[0], item_category: p.type })),
+    });
+  }, [products]);
 
   useEffect(() => {
     setResults(products.filter(product => {
