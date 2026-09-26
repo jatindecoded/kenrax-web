@@ -53,17 +53,17 @@ export default function Home() {
       <Gallery6
         heading="Air Filters for Screw Compressors"
         demoUrl="/air-filter"
-        items={airFilters}
+        items={airFilters.slice(0, 10)}
       />
       <Gallery6
         heading="Oil Filters for Screw Compressors"
         demoUrl="/oil-filter"
-        items={oilFilters}
+        items={oilFilters.slice(0, 10)}
       />
       <Gallery6
         heading="Air-Oil Separators for Screw Compressors"
         demoUrl="/air-oil-separator"
-        items={separators}
+        items={separators.slice(0, 10)}
       />
       <Testimonial10 />
       <Faq5 />

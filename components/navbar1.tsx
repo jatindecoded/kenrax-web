@@ -85,6 +85,10 @@ const Navbar1 = ({
       url: "/blogs",
     },
     {
+      title: "Locations",
+      url: "/locations",
+    },
+    {
       title: "FAQ",
       url: "/#faq",
     },

@@ -1,6 +1,15 @@
 import { Metadata } from "next";
 import { locations } from "@/lib/locations";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next-export-optimize-images/image";
+import properties from "@/data/properties.json";
+
+const photos = [
+  properties["media.homepage.photo.1"].media[0],
+  properties["media.homepage.photo.2"].media[0],
+  properties["media.homepage.photo.3"].media[0],
+  properties["media.homepage.photo.4"].media[0],
+];
 
 export default function LocationsPage() {
   return (
@@ -20,19 +29,28 @@ export default function LocationsPage() {
 
       <section className="py-8 border-t">
         <div className="container grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {locations.map((l) => (
+          {locations.map((l, i) => (
             <a
               key={l.slug}
               href={`/locations/${l.slug}`}
-              className="group rounded-lg border bg-card p-6"
+              className="group flex flex-col overflow-hidden rounded-lg border bg-card"
             >
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold">{l.name}</h2>
-                <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-1" />
+              <Image
+                width={600}
+                height={400}
+                src={photos[i % photos.length]}
+                alt={`Kenrax compressor filters in ${l.name}`}
+                className="aspect-video w-full object-cover"
+              />
+              <div className="p-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-lg font-bold">{l.name}</h2>
+                  <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-1" />
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
+                  {l.intro}
+                </p>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                {l.intro}
-              </p>
             </a>
           ))}
         </div>

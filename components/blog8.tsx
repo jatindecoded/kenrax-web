@@ -50,11 +50,11 @@ const allPosts = (posts ?? blogs).map((p: any): Post => ({
   return (
     <section className="py-8">
       <div className="container flex flex-col items-center gap-16">
-        <div className="text-center">
-          <h2 className="mx-auto mb-6 text-3xl font-bold tracking-tight text-pretty md:text-4xl lg:max-w-3xl">
+        <div className="flex w-full flex-col items-start text-left">
+          <h2 className="mb-6 text-3xl font-bold tracking-tight text-pretty md:text-4xl lg:max-w-3xl">
             {heading}
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground text-sm md:text-md">
+          <p className="max-w-2xl text-muted-foreground text-sm md:text-md">
             {description}
           </p>
         </div>

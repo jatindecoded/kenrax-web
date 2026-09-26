@@ -97,7 +97,7 @@ export default async function CityPage({
       />
 
       <section className="py-10">
-        <div className="container flex flex-col items-center text-center">
+        <div className="container flex flex-col items-start text-left">
           <Badge variant="secondary" className="mb-4">
             Air Compressor Filters in {location.name}
           </Badge>
@@ -111,7 +111,7 @@ export default async function CityPage({
       </section>
 
       <section className="py-8 border-t">
-        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+        <div className="mx-auto flex flex-col items-start text-left max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
             Where {location.name}&apos;s compressors actually run
           </h2>
@@ -147,7 +147,7 @@ export default async function CityPage({
 
       {location.body.map((section) => (
         <section key={location.slug + section.heading} className="py-8 border-t">
-          <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+<div className="mx-auto flex flex-col items-start text-left max-w-4xl">
             <h2 className="text-2xl font-bold tracking-tight mb-6">
               {section.heading}
             </h2>
@@ -168,7 +168,7 @@ export default async function CityPage({
       ))}
 
       <section className="py-8 border-t">
-        <div className="mx-auto flex flex-col items-center text-center max-w-4xl">
+        <div className="mx-auto flex flex-col items-start text-left max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
             Every Major Compressor Brand Covered
           </h2>
@@ -178,7 +178,7 @@ export default async function CityPage({
             drops straight in. We cross-reference your OEM part number on WhatsApp
             before you order.
           </p>
-          <ul className="flex flex-wrap justify-center gap-2 max-w-3xl">
+          <ul className="flex flex-wrap justify-start gap-2 max-w-3xl">
             {oemBrands.map((b) => (
               <li
                 key={b}
