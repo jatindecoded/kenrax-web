@@ -111,7 +111,7 @@ export default async function CityPage({
       </section>
 
       <section className="py-8 border-t">
-        <div className="mx-auto flex flex-col items-start text-left max-w-4xl">
+        <div className="container flex flex-col items-start text-left">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
             Where {location.name}&apos;s compressors actually run
           </h2>
@@ -120,7 +120,7 @@ export default async function CityPage({
       </section>
 
       <section className="py-8 border-t">
-        <div className="container flex flex-col items-center text-center">
+        <div className="container flex flex-col items-start text-left">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
             Product Categories Available in {location.name}
           </h2>
@@ -147,7 +147,7 @@ export default async function CityPage({
 
       {location.body.map((section) => (
         <section key={location.slug + section.heading} className="py-8 border-t">
-<div className="mx-auto flex flex-col items-start text-left max-w-4xl">
+<div className="container flex flex-col items-start text-left">
             <h2 className="text-2xl font-bold tracking-tight mb-6">
               {section.heading}
             </h2>
@@ -168,7 +168,7 @@ export default async function CityPage({
       ))}
 
       <section className="py-8 border-t">
-        <div className="mx-auto flex flex-col items-start text-left max-w-4xl">
+        <div className="container flex flex-col items-start text-left">
           <h2 className="text-2xl font-bold tracking-tight mb-6">
             Every Major Compressor Brand Covered
           </h2>
@@ -192,8 +192,8 @@ export default async function CityPage({
       </section>
 
       <section className="py-8 border-t">
-        <div className="container flex flex-col items-center">
-          <h2 className="text-2xl font-bold tracking-tight mb-6 text-center">
+        <div className="container flex flex-col items-start">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">
             Compressor Filter FAQs for {location.name}
           </h2>
           <Accordion type="single" collapsible className="w-full max-w-3xl">

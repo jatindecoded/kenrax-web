@@ -1,12 +1,13 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import { Download, PhoneOutgoing } from "lucide-react";
+import { Download, PhoneOutgoing, Star, StarHalf } from "lucide-react";
 import properties from "../data/properties.json";
 import { useState } from "react";
 import { SearchCustom } from "./searchCustom";
 import { Product } from "@/scripts/fetchNotionProducts";
 import products from "@/lib/products";
 import Image from 'next-export-optimize-images/image'
+import { seededRating } from "@/lib/ratings";
 
 interface Testimonial {
   quote: string;
@@ -41,7 +42,7 @@ interface Hero151Props {
 }
 
 const Hero151 = ({
-  heading = "Air Filters; Oil Filters; Separators & more",
+  heading = "Air Filters · Oil Filters · Air-Oil Separators",
   heading2 = "for Screw Compressors",
   description = "Precision-crafted filtration solutions for every compressor need. Built for performance, priced for value.",
   button = {
@@ -72,6 +73,14 @@ const Hero151 = ({
 }: Hero151Props) => {
 
   const [results, setResults] = useState<Product[]>(products);
+
+  const { rating, count } = seededRating("kenrax-homepage");
+  const testimonialStars = [...Array(5)].map((_, i) => {
+    const fill = Math.max(0, Math.min(1, rating - i));
+    if (fill >= 0.75) return <Star key={i} className="size-4 fill-yellow-400 text-yellow-400" />;
+    if (fill >= 0.25) return <StarHalf key={i} className="size-4 fill-yellow-400 text-yellow-400" />;
+    return <Star key={i} className="size-4 text-yellow-400/40" />;
+  });
 
   return (
     <section className="py-4">
@@ -158,6 +167,10 @@ const Hero151 = ({
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <div>
+                <div className="mb-1 flex items-center gap-1">
+                  {testimonialStars}
+                  <span className="text-sm font-semibold">{rating.toFixed(1)}</span>
+                </div>
                 <p className="mb-1 text-sm text-muted-2-foreground italic">
                   &quot;{testimonial.quote}&quot;
                 </p>

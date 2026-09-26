@@ -40,15 +40,20 @@ const Footer2 = ({
     {
       title: "Home",
       links: [
-        { text: "Overview", url: "#" },
+        { text: "Overview", url: "/" },
         { text: "Products", url: "/products" },
+        { text: "Locations", url: "/locations" },
         { text: "Blog", url: "/blogs" },
-        { text: "FAQs", url: "/#FAQ" }
+        { text: "FAQs", url: "/faq" }
       ],
     },
     {
       title: "Social",
       links: [
+        {
+          text: "Email: jatin.kenrax@gmail.com",
+          url: `mailto:${properties["contact.email"].value}`
+        },
         {
           text: "Instagram",
           url: `${properties["link.instagram"].value}`

@@ -31,6 +31,31 @@ const faqs = [
     answer:
       "Yes, we provide product samples on request to help you verify quality and compatibility before proceeding with larger orders.",
   },
+  {
+    question: "How do I know which replacement filter fits my compressor?",
+    answer:
+      "Send us your OEM part number on WhatsApp or email and we cross-reference it against our catalog of 500+ part numbers to confirm fitment the same day.",
+  },
+  {
+    question: "What is the typical dispatch time for orders?",
+    answer:
+      "In-stock items are dispatched within 24–48 hours from our New Delhi facility. Bulk and custom-labeled orders are scheduled against confirmed timelines.",
+  },
+  {
+    question: "Do you offer warranty on replacement filters?",
+    answer:
+      "Yes, all Kenrax filters are covered by a manufacturing-defect warranty. We stand behind media grade, dimension, and sealing quality on every part.",
+  },
+  {
+    question: "Can you help with old, discontinued OEM part numbers?",
+    answer:
+      "Yes. Our catalog maps legacy and discontinued OEM part numbers, so we can often supply the equivalent replacement even when the OEM no longer stocks it.",
+  },
+  {
+    question: "What is the minimum order quantity?",
+    answer:
+      "There is no minimum for catalogue part numbers on price-list orders. Custom labeling and white-label manufacturing do carry volume-based MOQs.",
+  },
 ];
 
 const faqSchema = {

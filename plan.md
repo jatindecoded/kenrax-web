@@ -30,18 +30,18 @@ Working plan for Kenrax (kenrax.in, static Next.js App Router export on GitHub P
 ## 3. Outstanding work captured from issues & comments
 
 ### 3.1 Issue #6 (OPEN) — hero copy + star ratings
-1. **Hero copy**: current primary shows "Air Filters; Oil Filters; Separators & more" — replace `;` separators with copy like "Air Filters · Oil Filters · Air-Oil Separators" or full sentence. Fix in the landing hero component (`hero151` and any `;` in hero headings).
-2. **Star ratings "real, not fixed 5.0"**: product pages (Hero3) currently show a fixed 5-star rating. Generate a deterministic pseudo‑random rating per product in the **4.5–5.0 band** (seeded by `partNumber`, so stable per page) and a review count; label as sample/satisfaction, or fetch per‑OEM basis. Same treatment for the homepage testimonial if it hard-codes 5.
+1. **Hero copy**: ✅ shipped in `hero151` — "Air Filters · Oil Filters · Air-Oil Separators" (no `;` separators).
+2. **Star ratings**: ✅ shipped — deterministic rating seeded by part number in the 4.5–5.0 band (`lib/ratings.ts`), partial-star rendering, per-product counts; applied to product pages (`hero3`) and homepage testimonial (`hero151`). No more fixed 5.0/200.
 
 ### 3.2 Comment items (#6 comments; some already shipped)
 | Item | Status | Action |
 |------|--------|--------|
-| `/locations` in navbar (under blogs) | ✅ shipped | Reasonable to also add to `Footer2` link column. |
+| `/locations` in navbar (under blogs) | ✅ shipped | Navbar "Locations" → `/locations` (PR #9). |
 | Sitemap auto-Updates on build | ✅ shipped (postbuild) | None. |
-| More FAQs + dedicated `/faq` page reusing the FAQ component | ⏳ **TODO** | Extract the FAQ block used on category pages into a reusable component (`components/FAQ.tsx`), add `/faq` page with FAQPage JSON-LD, link from navbar/footer. |
-| Footer email `jatin.kenrax@gmail.com` beside phones | ⏳ **TODO** | Add `properties["contact.email"].value` (with `mailto:`) to `components/footer2.tsx`. |
-| About + company pages | ✅ | `/company-profile` exists; add "About Us" section if missing. |
-| Competitor comparison pages (`kenrax vs Mann`, etc.) | ⏳ **TODO** | Build `/compare/[competitor]` (or static pages) targeting keywords like "Mann filters replacement India". Data tables: equivalent part numbers/price/quality, interlink from category + blog pages. Mann Filters already a recognised OEM brand group (7 products). |
+| More FAQs + dedicated `/faq` page reusing the FAQ component | ✅ shipped | `Faq5` expanded 6→12 Q&As; `app/faq/page.tsx`; navbar "FAQ" → `/faq`; footer link. |
+| Footer email `jatin.kenrax@gmail.com` beside phones | ✅ shipped | `mailto:` link in `footer2` next to phone/social. |
+| About + company pages | ✅ shipped | `/about` (new, navbar "About Us") + `/company-profile` (existing). |
+| Competitor comparison ("kenrax vs Mann") | ✅ shipped | As a **blog** (`/blogs/kenrax-vs-mann-hummel-filters`) per user choice — not a separate navbar space; linked from blog listing. |
 | Genuine per-product content (not placeholders) | ✅ shipped | `lib/productContent.ts`. |
 
 ### 3.3 oxfil.com‑inspired UX/SEO revamp (largest open idea)
